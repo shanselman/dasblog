@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<table name="00000055">
+	<table name="categories">
+		<boolean name="My Learning About Radio" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="link" value="http://radio.userland.com/discuss/msgReader$21178"/>
+	<string name="text" value="I have reinstalled my system recently and simply copied the Radio Userland files to a new directory rather than reinstalling.&amp;nbsp; Unfortunatly, I am getting an error in the event log and my files are not being uploaded correctly.&amp;nbsp; In the hopes of getting this figured out I posted a message to the discussion groups.&amp;nbsp;"/>
+	<string name="title" value="Can&apos;t upstream because "/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				<table name="http://radio.userland.com/discuss/msgReader$21178">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Mon, 09 Dec 2002 05:22:17 GMT"/>
+	</table>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<table name="00000550">
+	<table name="categories">
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="text" value="&lt;P&gt;I have written before about my experiences with Virtual PC and how I am using it with my team to automate testing, especially testing product installs.&amp;nbsp; I love the idea of this and have got it working reasonably well.&amp;nbsp; Unfortunately, however, Virtual PC does not come without headaches.&amp;nbsp; Currently the issue described &lt;A href=&quot;http://www.google.com/groups?selm=0h1ivvsepitr7rhmetrvn3i0fkadj9sjjh%404ax.com&quot;&gt;here&lt;/A&gt; and quoted below&amp;nbsp;is driving me nuts.&lt;/P&gt;&#013;&#010;&lt;BLOCKQUOTE dir=ltr style=&quot;MARGIN-RIGHT: 0px&quot;&gt;&#013;&#010;&lt;P&gt;I am trying to access files on the host system via a network share (not shared folders).&amp;nbsp; I am able to successfully browse the network share but every time I actually try to access/read/write the files the windows explorer freezes.&lt;/P&gt;&lt;/BLOCKQUOTE&gt;&#013;&#010;&lt;P&gt;Also, why the heck is VPC not supported on Windows 2003?&lt;/P&gt;"/>
+	<string name="title" value="Virtual PC Headaches"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				<table name="http://www.google.com/groups?selm=0h1ivvsepitr7rhmetrvn3i0fkadj9sjjh%404ax.com">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Tue, 06 Jan 2004 15:08:01 GMT"/>
+	</table>

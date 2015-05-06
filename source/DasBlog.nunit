@@ -1,0 +1,10 @@
+﻿<NUnitProject>
+  <Settings activeconfig="Debug" />
+  <Config name="Debug" binpathtype="Auto">
+    <assembly path="newtelligence.DasBlog.Runtime\Test\bin\newtelligence.DasBlog.runtime.Test.dll" />
+    <assembly path="newtelligence.DasBlog.Util\Test\bin\DasBlog.Util.Test.dll" />
+    <assembly path="Import\Test\bin\DasBlog.Import.Test.dll" />
+    <assembly path="newtelligence.DasBlog.Web.Core\Test\bin\newtelligence.DasBlog.Web.Core.Test.dll" />
+  </Config>
+  <Config name="Release" binpathtype="Auto" />
+</NUnitProject>

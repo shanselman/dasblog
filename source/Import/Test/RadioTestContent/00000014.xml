@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<table name="00000059">
+	<table name="categories">
+		<boolean name="My Learning About Radio" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<table name="notified">
+		<boolean name="homepage" value="true"/>
+		</table>
+	<string name="text" value="&lt;P&gt;Well... I finally figured out how to reference images that I have in my www\images folder.&amp;nbsp; For some reason I was making the silly mistake of using the full URL in the post.&amp;nbsp; This of course prevented it from working on my home page or on the remote page (depending on which URL I used.)&amp;nbsp; To reference an image within a post use the following: &lt;/P&gt;&#013;&#010;&lt;BLOCKQUOTE dir=ltr style=&quot;MARGIN-RIGHT: 0px&quot;&gt;&lt;FONT face=Monospace size=2&gt;&#013;&#010;&lt;P&gt;&amp;lt;IMG src=&quot;/myPictures/X3Technology.jpg&quot;&amp;gt;&lt;/P&gt;&lt;/FONT&gt;&lt;/BLOCKQUOTE&gt;&#013;&#010;&lt;P dir=ltr&gt;Where &quot;/myPictures/X3Technology.jpg&quot; serves as an example of a file and its path relative to my Radio Userland www directory.&amp;nbsp;&amp;nbsp;I realize&amp;nbsp;this is obvious but since I made the lame mistake I figured I would document it none-the-less.&lt;/P&gt;&#013;&#010;&lt;P dir=ltr&gt;Since I am making obvious statmenets about HTML here is another.&amp;nbsp; As a standard means for posting code I surrond the code with the following tag:&lt;/P&gt;&#013;&#010;&lt;BLOCKQUOTE dir=ltr style=&quot;MARGIN-RIGHT: 0px&quot;&gt;&lt;FONT face=Monospace size=2&gt;&#013;&#010;&lt;P dir=ltr&gt;&amp;lt;FONT face=Monospace size=2&amp;gt;&lt;/P&gt;&lt;/FONT&gt;&lt;/BLOCKQUOTE&gt;"/>
+	<string name="title" value="Referencing Images from Radio Posts"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Mon, 16 Dec 2002 06:35:04 GMT"/>
+	</table>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<table name="00000551">
+	<table name="categories">
+		<boolean name="My Learning About Radio" value="true"/>
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="text" value="DasBlog has done a good job identifying what security rights are required for the read/write directories.&amp;nbsp; If you happen to continue to get a configuration error that indicates a security problem you should also check that files (site.config for example) are not marked as read-only.&amp;nbsp; Dah!"/>
+	<string name="title" value="DasBlog Configuration Error: Check your permissions"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Tue, 06 Jan 2004 17:49:37 GMT"/>
+	</table>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<table name="00000033">
+	<table name="categories">
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="link" value="http://www.winxpnews.com/?id=50"/>
+	<string name="text" value="&lt;P&gt;This&amp;nbsp;Outlook desktop&amp;nbsp;icon restore tip came across my desk today in the &lt;A href=&quot;http://www.winxpnews.com/?id=50&quot;&gt;Tue, Nov 5, 2002 (Vol. 2, 44 - Issue 50)&lt;/A&gt;&amp;nbsp;issue of &lt;A href=&quot;http://www.winxpnews.com/subscribe.cfm&quot;&gt;WinXPNews&lt;/A&gt;.&amp;nbsp; I am reposting it here so as to save a record for my own benefit in the future.&lt;/P&gt;&#013;&#010;&lt;BLOCKQUOTE dir=ltr style=&quot;MARGIN-RIGHT: 0px&quot;&gt;&#013;&#010;&lt;P&gt;A few of you have written in about the special characteristics of the Outlook icon on the desktop. You&apos;ve noticed that this icon isn&apos;t like the other ones on your desktop and you&apos;re right. This icon actually takes you to the program properties dialog boxes when you right click on them and click the Properties command. Sometimes an errant program can wipe out these special icons. Here&apos;s what you need to do to get them back: &lt;/P&gt;&#013;&#010;&lt;OL&gt;&#013;&#010;&lt;LI&gt;Open the Registry Editor (regedt32) from the Run command. &#013;&#010;&lt;LI&gt;Navigate to the following Registry key:&lt;BR&gt;HKEY LOCAL MACHINE \ SOFTWARE \ Microsoft \ Windows \ CurrentVersion \ Explorer \ Desktop \ NameSpace &#013;&#010;&lt;LI&gt;Once you&apos;re there, click the Edit menu, point to New and click Key. &#013;&#010;&lt;LI&gt;Change the name of the key to (make sure you include the curly brackets):&lt;BR&gt;{00020D75-0000-0000-C000-000000000046} &#013;&#010;&lt;LI&gt;Close the Registry editor and right click on your desktop and click Refresh. You should see the Outlook icon appear on your desktop again. &lt;/LI&gt;&lt;/OL&gt;&lt;/BLOCKQUOTE&gt;"/>
+	<string name="title" value="Restoring Outlook "/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				<table name="http://www.winxpnews.com/?id=50">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://www.winxpnews.com/subscribe.cfm">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Sat, 09 Nov 2002 06:07:53 GMT"/>
+	</table>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<table name="00000067">
+	<table name="categories">
+		<boolean name="My Learning About Radio" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<table name="notified">
+		<boolean name="homepage" value="true"/>
+		</table>
+	<string name="text" value="&lt;P&gt;If you want to remove the Radio Userland Logo &lt;/P&gt;&#013;&#010;&lt;BLOCKQUOTE dir=ltr style=&quot;MARGIN-RIGHT: 0px&quot;&gt;&#013;&#010;&lt;P&gt;&amp;nbsp;&lt;%radioBadge%&gt;&lt;/P&gt;&lt;/BLOCKQUOTE&gt;&#013;&#010;&lt;P&gt;from the bottom of each page all you have to do is remove or comment out the &amp;lt;%radioBadge%&amp;gt; tag from the &lt;A href=&quot;http://127.0.0.1:5335/system/pages/prefs?page=3.1&quot;&gt;Main Template&lt;/A&gt;&amp;nbsp;and &lt;A href=&quot;http://127.0.0.1:5335/system/pages/prefs?page=3.2&quot;&gt;Home Page Template&lt;/A&gt;.&amp;nbsp; Changing &amp;lt;%radioBadge%&amp;gt; to &amp;lt;!--&amp;lt;%radioBadge%&amp;gt;--&amp;gt; in other words.&amp;nbsp;&lt;/P&gt;&#013;&#010;&lt;P&gt;While figuring out how to post this message with the link to the Radio Userland Logo I also realized how to use rudimentary macros.&amp;nbsp; By simply pasting &quot;&amp;lt;%radioBadge%&amp;gt;&quot; into&amp;nbsp;the source window I was able to display the image. (What is&amp;nbsp;somewhat strange, however, is that the macros don&apos;t appear when using the wysiwyg view.&amp;nbsp; They are completely invisible.) In other words, macros are replaced by the macro definition at time of rendering.&amp;nbsp; Cool!&amp;nbsp;Next on my list is to create a macro fo images and code, two command things I place within my logs.&amp;nbsp; In addition I need to figure out how one passes parameters to macros?&lt;/P&gt;&#013;&#010;&lt;P&gt;One last discovery I made was the use of Shortcuts.&amp;nbsp; From the &lt;A href=&quot;http://127.0.0.1:5335/system/pages/shortcuts&quot;&gt;Shortcuts&lt;/A&gt; URL you can add new named shortcuts such that entering the name in quotes will result in the text of the shortcut being used in place of the quoted name when the post is rendered.&amp;nbsp; For example, I added a shortcut named &apos;Test&apos; in which I placed &apos;this is a test&apos; for the test.&amp;nbsp; The result is that &quot; Test &quot; (remove spaces) is replaced with &quot;This is a test&quot;. Neat!&amp;nbsp; &lt;/P&gt;"/>
+	<string name="title" value="Removing the Radio Userland Logo"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Mon, 30 Dec 2002 00:17:10 GMT"/>
+	</table>

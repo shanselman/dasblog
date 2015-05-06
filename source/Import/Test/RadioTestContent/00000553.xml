@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<table name="00000553">
+	<table name="categories">
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="link" value="http://www.controlledvocabulary.com/imagedatabases/iptc_naa.html"/>
+	<string name="text" value="I recently came across an image editing program called &lt;A href=&quot;http://www.irfanview.com/&quot;&gt;IrfanView&lt;/A&gt;.&amp;nbsp; It included the ability to edit IPTC information in addition to the EXIF information.&amp;nbsp; I hadn&apos;t heard of this standard so I looked it up.&amp;nbsp; Turns out that the IPTC information includes keywords and categories, two key items that I am looking to embed in my photos.&amp;nbsp; I am not sure I would go this route as EXIF seems to be more common and supported at least some degree by windows.&amp;nbsp; However, it was interesting to note that it was out there."/>
+	<string name="title" value="IPTC Standard for Embedding Meta-data in Photos"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				<table name="http://www.controlledvocabulary.com/imagedatabases/iptc_naa.html">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://www.irfanview.com/">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Mon, 12 Jan 2004 16:29:06 GMT"/>
+	</table>

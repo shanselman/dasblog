@@ -1,0 +1,1 @@
+﻿FCKLang.InsertCodeBtn			= 'Insert Code' ;

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<table name="00000035">
+	<table name="categories">
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="link" value="http://www.craigburton.com/2001/04/18"/>
+	<string name="text" value="&lt;P&gt;I tried &lt;A href=&quot;http://www.craigburton.com/&quot;&gt;Craig Burton&apos;s&lt;/A&gt; &quot;&lt;A href=&quot;http://www.craigburton.com/2001/04/18&quot;&gt;Introduction to Radio Userland Channels&lt;/A&gt;&quot; &lt;A href=&quot;http://66.134.56.94/cb/radio/channelintro/ChannelIntro_viewlet.html&quot;&gt;demo&lt;/A&gt;&amp;nbsp;but it froze on the 2nd slide.&amp;nbsp; I am going to try again after my next reboot as I am curious&amp;nbsp;about all this channel stuff and I don&apos;t yet understand it.&lt;/P&gt;"/>
+	<string name="title" value="Craig Burton&apos;s Introduction to Radio Userland Channels"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				<table name="http://66.134.56.94/cb/radio/channelintro/ChannelIntro_viewlet.html">
+					<boolean name="flChecked" value="false"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://www.craigburton.com/">
+					<boolean name="flChecked" value="false"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://www.craigburton.com/2001/04/18">
+					<boolean name="flChecked" value="false"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Mon, 11 Nov 2002 17:14:25 GMT"/>
+	</table>

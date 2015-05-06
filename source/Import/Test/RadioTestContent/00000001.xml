@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<table name="00000001">
+	<table name="categories">
+		<boolean name="My Learning About Radio" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="true"/>
+	<string name="text" value="First Weblog post and test just to try things out."/>
+	<string name="title" value="First Weblog post"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Tue, 08 Oct 2002 01:31:41 GMT"/>
+	</table>

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<table name="00000010">
+	<table name="categories">
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="link" value="http://www.rex6000.org/Content/rex-os.htm#xp"/>
+	<string name="text" value="&lt;P&gt;Yesterday I finally go around to installing my old Rex6000 onto my wife&apos;s XP machine.&amp;nbsp; In the past this has been a nightmare because XP is not officially supported especially for the USB docking station.&amp;nbsp; Anyway, I went to Intel&apos;s website and learned how completely they had dropped the REX and any support for it.&amp;nbsp; Fortunately, they had a reference to the &lt;A href=&quot;http://www.rex6000.org/&quot;&gt;http://www.rex6000.org&lt;/A&gt; web site which had tons of info.... more than when managed by Xircom even.&lt;/P&gt;&#013;&#010;&lt;P&gt;The step-by-step procedure of installing the REX6000 and USB cradle was as follows:&lt;/P&gt;&#013;&#010;&lt;OL&gt;&#013;&#010;&lt;LI&gt;Download &lt;A href=&quot;http://www.rex6000.org/Content/rex-updates.htm#101&quot;&gt;Intellisync 1.01&lt;/A&gt; software. &#013;&#010;&lt;LI&gt;Decompress the &lt;A href=&quot;http://www.rex6000.org/Content/rex-updates.htm#101&quot;&gt;Intellisync 1.01&lt;/A&gt; software. &#013;&#010;&lt;LI&gt;Shut down all other software.&amp;nbsp; This is done because the install is likely to cause a crash of you system. &#013;&#010;&lt;LI&gt;Plug in USB Cradle &#013;&#010;&lt;LI&gt;When prompted for hardware drivers choose to provide your own and browse to the W2K folder on the of the &lt;A href=&quot;http://www.rex6000.org/Content/rex-updates.htm#101&quot;&gt;Intellisync 1.01&lt;/A&gt; software. &#013;&#010;&lt;LI&gt;Multiple devices will be recognized and for each you follow the same procedure of browsing for the drivers in the W2K folder. &#013;&#010;&lt;LI&gt;If &amp;lt;&amp;lt;KABOOM&amp;gt;&amp;gt;&amp;gt;&amp;gt; &lt;/LI&gt;&#013;&#010;&lt;OL&gt;&#013;&#010;&lt;P&gt;After the system restarts, &quot;open up the registry editor [Start-&amp;gt;Run = regedit], and go to HKLM\System\CurrentControlSet\Control\Session Manager\Memory Management.&amp;nbsp; Now add a REG_DWORD value name &quot;EnforceWriteProtection&quot; (sans quotes, of course), and set that to 0 (which is the default for a newly created value anyway); it this value is already present, just change the (most likely value of) 1 to 0 ... reboot, and you should be able to install fine (with or without Windows2000 compatibility mode)&quot;&lt;/P&gt;&#013;&#010;&lt;P&gt;(I never knew about this registry setting before.... kinda cool!&amp;nbsp; It allows applications to overwrite kernel memory.)&lt;/P&gt;&lt;/OL&gt;&#013;&#010;&lt;LI&gt;Continue the installation by browsing for the drivers based on the&amp;nbsp;dialogs&amp;nbsp;shown by&amp;nbsp;the New Hardware Wizard.&#013;&#010;&lt;LI&gt;Run the install from the &lt;A href=&quot;http://www.rex6000.org/Content/rex-updates.htm#101&quot;&gt;Intellisync 1.01&lt;/A&gt;&amp;nbsp;software.&lt;/LI&gt;&lt;/OL&gt;&#013;&#010;&lt;P&gt;After getting everything installed the next problem I had was synchronizing with Outlook 2002.&amp;nbsp; For some reason I could not synchronize contacts in a public folder even though they were part of my public folder favorites.&amp;nbsp;&amp;nbsp;According to notes&amp;nbsp;&lt;A href=&quot;http://www.rex6000.org/Content/rex-os.htm#officexp&quot;&gt;Office XP&lt;/A&gt; issues this relates to the folders being offline.&amp;nbsp; However, this did not seem to be the case for me because my &quot;default&quot; contacts folder worked fine.&amp;nbsp; To solve this I used the &lt;A href=&quot;http://office.microsoft.com/downloads/2002/opcs.aspx&quot;&gt;Outlook PCS&lt;/A&gt; software to synchronize all contacts to the local contacts folder and synchronize with that.&lt;/P&gt;&#013;&#010;&lt;P&gt;One last note:&amp;nbsp; The &lt;A href=&quot;http://www.rex6000.org&quot;&gt;REX6000&lt;/A&gt; website also had a bunch of &lt;A href=&quot;http://www.rex6000.org/Content/rex-addin.htm&quot;&gt;REX Add-ins&lt;/A&gt; and a rudimentary &lt;A href=&quot;http://www.rex6000.org/Content/rex-sdk.htm&quot;&gt;REX SDK&lt;/A&gt;.&amp;nbsp;&amp;nbsp;I don&apos;t believe Xircom made any of this stuff available so it is really cool that others have done the work.&amp;nbsp; The website give the impression these things are almost becoming collectors items....&amp;nbsp; Personally I have moved on to Pocket PC devices but the REX 6000 is serving my wife now and I am pleased that is is still fully functional (after some workarounds) with Windows XP.&lt;/P&gt;"/>
+	<string name="title" value="Installing REX 6000 Software and Drivers on Windows XP and Synchronizing with Outlook XP 2002"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				<table name="http://office.microsoft.com/downloads/2002/opcs.aspx">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://www.rex6000.org/">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://www.rex6000.org/Content/rex-addin.htm">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://www.rex6000.org/Content/rex-os.htm#officexp">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://www.rex6000.org/Content/rex-os.htm#xp">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://www.rex6000.org/Content/rex-sdk.htm">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://www.rex6000.org/Content/rex-updates.htm#101">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Wed, 16 Oct 2002 21:51:45 GMT"/>
+	</table>

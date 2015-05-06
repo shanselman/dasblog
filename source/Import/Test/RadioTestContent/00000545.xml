@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<table name="00000545">
+	<table name="categories">
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="link" value="http://www.gotdotnet.com/Community/Workspaces/Workspace.aspx?id=9c29a963-594e-4e7a-9c45-576198df8058"/>
+	<string name="text" value="&lt;P&gt;&lt;A href=&quot;http://www.gotdotnet.com/Community/Workspaces/Workspace.aspx?id=9c29a963-594e-4e7a-9c45-576198df8058&quot;&gt;Shadowfax&lt;/A&gt;&amp;nbsp;is a workspace dedicated to a reference platform workspace that demonstrates Service Oriented Architecture (SOA).&amp;nbsp; At a minimum I recommend folks listen to the &lt;A href=&quot;http://msevents.microsoft.com/CUI/EventDetail.aspx?EventID=1032241538&amp;amp;Culture=en-US&quot;&gt;Shadowfax WebCast&lt;/A&gt;.&lt;/P&gt;"/>
+	<string name="title" value="Shadowfax:  A Service Oriented Architecture Reference Project"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				<table name="http://msevents.microsoft.com/CUI/EventDetail.aspx?EventID=1032241538&amp;amp;Culture=en-US">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://www.gotdotnet.com/Community/Workspaces/Workspace.aspx?id=9c29a963-594e-4e7a-9c45-576198df8058">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Fri, 02 Jan 2004 23:18:02 GMT"/>
+	</table>

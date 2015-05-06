@@ -1,0 +1,4 @@
+this is the folder where you place
+
+tiny_mce_gzip.aspx
+tiny_mce_gzip.js

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<table name="00000004">
+	<table name="categories">
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="link" value="http://www.xprogramming.com/xpmag/whatisxp.htm"/>
+	<string name="text" value="&lt;P&gt;Yesterday I attended an Inland Northwest ACM meeting in downtown Spokane.&amp;nbsp; The topic was one I am familiar with but never actually put into practice: &lt;A href=&quot;http://www.xprogramming.com/xpmag/whatisxp.htm&quot;&gt;Extreme Programming&lt;/A&gt;.&amp;nbsp; Probably one of the best sites on this topic is &lt;A href=&quot;http://www.xprogramming.com&quot;&gt;www.xprogramming.com&lt;/A&gt;&amp;nbsp;and&amp;nbsp;I was pleased to see there is quite a bit of C# stuff there in addition to the expected JAVA.&amp;nbsp;&lt;/P&gt;&#013;&#010;&lt;H5&gt;Below are some notes from the talk... real basic but that is what I wrote anyway:&lt;/H5&gt;&#013;&#010;&lt;UL&gt;&#013;&#010;&lt;LI&gt;&#013;&#010;&lt;P&gt;pair programming - all production code is written by two developers at one screen, if asked to pair you have to say yes although you may negotiate for something&#133;.&amp;nbsp; Pair programming decreases truck factor (the consequences if someone gets hit by a truck.&lt;/P&gt;&#013;&#010;&lt;LI&gt;&#013;&#010;&lt;P&gt;Use numbering system of 1-3 for each story and give the customer a total that they can have as many stories add up to.&lt;/P&gt;&#013;&#010;&lt;LI&gt;&#013;&#010;&lt;P&gt;Daily standup meetings&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&#013;&#010;&lt;H5&gt;Questions:&lt;/H5&gt;&#013;&#010;&lt;OL&gt;&#013;&#010;&lt;LI&gt;&#013;&#010;&lt;P&gt;What is the measure that you have got enough code covereage for a unit test?&amp;nbsp; Almost one hundred percent.&amp;nbsp; You write one test then write the code to get the test to pass.&amp;nbsp; Then you write the next test.&lt;/P&gt;&#013;&#010;&lt;LI&gt;&#013;&#010;&lt;P&gt;How do you compile test without at least first defining the interfaces for your implementation?&amp;nbsp; Use code by intention.&amp;nbsp; At first your tests don&apos;t compile.&amp;nbsp; You don&apos;t write the complete test and then all the code, however.&amp;nbsp; See answer above.&lt;/P&gt;&#013;&#010;&lt;LI&gt;&#013;&#010;&lt;P&gt;How do you handle usability?&amp;nbsp; Easily, you let the customer use what you build as you go and get their immediate feedback.&lt;/P&gt;&lt;/LI&gt;&lt;/OL&gt;&#013;&#010;&lt;H5&gt;Some notes about testing&lt;/H5&gt;&#013;&#010;&lt;UL&gt;&#013;&#010;&lt;LI&gt;When you find a bug write a test to demonstrate the bug then fix it.&amp;nbsp; This stems from the idea that if your tests are good you wouldn&apos;t have any bugs so fix your tests.&lt;/LI&gt;&lt;/UL&gt;"/>
+	<string name="title" value="Extreme Programming"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				<table name="http://www.xprogramming.com/">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://www.xprogramming.com/xpmag/whatisxp.htm">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Wed, 09 Oct 2002 15:20:52 GMT"/>
+	</table>

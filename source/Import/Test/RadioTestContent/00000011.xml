@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<table name="00000036">
+	<table name="categories">
+		<boolean name="My Sports" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="text" value="&lt;P&gt;&lt;A href=&quot;http://www.nokiantyres.com/bike/images/w240.jpg&quot;&gt;&lt;IMG style=&quot;WIDTH: 107px; HEIGHT: 108px&quot; height=108 alt=&quot;HAKKAPELIITTA W240 Image&quot; src=&quot;http://www.coloradocyclist.com/images/products/full/nokfla21i02.jpg&quot; width=107&gt;&lt;/A&gt;&lt;/P&gt;&#013;&#010;&lt;P&gt;I just ordered some studded snow tires for my bike. Wahooo!! I have been saying all summer that I would ride through the winter and now that I have just spent $150 (yes, that&apos;s right) on studded bike tires I am stuck doing it. The tires I purchased were the &lt;A href=&quot;http://www.nokiantyres.com/bike/winter/index.html&quot;&gt;Nokian&lt;/A&gt;&amp;nbsp;(the make car tires too) &lt;A href=&quot;http://www.nokiantyres.com/bike/images/w240.jpg&quot;&gt;HAKKAPELIITTA W240s&lt;/A&gt;. By the way, I ordered them from &lt;A href=&quot;http://www.allweathersports.com/&quot;&gt;All Weather Sports&lt;/A&gt;.&amp;nbsp; I was originally going to get the W160s (160 studs) but for $10 more per tire I decided to go with the 240s.&lt;/P&gt;"/>
+	<string name="title" value="Just Bought Studded Bike Tires"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				<table name="http://www.allweathersports.com/">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://www.nokiantyres.com/bike/winter/index.html">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Mon, 11 Nov 2002 17:51:45 GMT"/>
+	</table>

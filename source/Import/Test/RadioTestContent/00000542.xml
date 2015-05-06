@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<table name="00000542">
+	<table name="categories">
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="link" value="http://oziphototool.alistairdickie.com/help.html"/>
+	<string name="text" value="&lt;P&gt;Here is a cool program:&amp;nbsp; &lt;A href=&quot;http://oziphototool.alistairdickie.com/help.html&quot;&gt;Ozi Photo Tool&lt;/A&gt; uses the tracking log from a GPS to set the EXIF location on your pictures by matching up the Date Picture Taken time with the tracking log....&amp;nbsp; This provides a is somewhat compelling reason for me&amp;nbsp;to buy a GPS....&amp;nbsp; Nice!&lt;/P&gt;&#013;&#010;&lt;P&gt;While on the topic of EXIF let me point out that you can obtain the specifications &lt;A href=&quot;http://www.exif.org/specifications.html&quot;&gt;here&lt;/A&gt;&amp;nbsp;along with a &lt;A href=&quot;http://park2.wakwak.com/~tsuruzoh/Computer/Digicams/exif-e.html&quot;&gt;EXIF file format description paper&lt;/A&gt;.&amp;nbsp; &lt;/P&gt;&#013;&#010;&lt;P&gt;Also, GotDotNet has a workspace called &lt;A href=&quot;http://www.gotdotnet.com/Community/Workspaces/Workspace.aspx?id=22112d14-8cd1-4301-9fc1-24300cdeaf75&quot;&gt;JPEG Hammer&lt;/A&gt; for modifying the EXIF info. on a photo.&amp;nbsp; For example, rather than actually rotating a graphic the program changes the&amp;nbsp;EXIF Orientation data.&amp;nbsp; Cool!&amp;nbsp; I don&apos;t really like the UI (I would prefer an Windows Explorer integrated solution) but the architecture seems to be such that one could use the components and provide a different UI on top of them.&amp;nbsp; &lt;BR&gt;(P.S.&amp;nbsp; Given the number of projects that I have been interested in that overlap involvement by &lt;SPAN id=RealName&gt;&lt;A href=&quot;http://www.shahine.com/omar/&quot;&gt;Omar Shahine&lt;/A&gt; (a list of his projects can be found &lt;A href=&quot;http://www.gotdotnet.com/Community/User/viewprofile.aspx?userid=000114A74C2B70D2&quot;&gt;here&lt;/A&gt;) &lt;/SPAN&gt;I am beginning to think that I should make it a rule to evaluate any workspaces that Omar is a member of.&amp;nbsp; )&lt;/P&gt;"/>
+	<string name="title" value="Automatically Set (EXIF) Location on Photos"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				<table name="http://oziphototool.alistairdickie.com/help.html">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://park2.wakwak.com/~tsuruzoh/Computer/Digicams/exif-e.html">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://www.exif.org/specifications.html">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://www.gotdotnet.com/Community/User/viewprofile.aspx?userid=000114A74C2B70D2">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://www.gotdotnet.com/Community/Workspaces/Workspace.aspx?id=22112d14-8cd1-4301-9fc1-24300cdeaf75">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://www.shahine.com/omar/">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Fri, 02 Jan 2004 20:20:10 GMT"/>
+	</table>

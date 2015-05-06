@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!-- How to use this file:
+     http://wiki.fckeditor.net/Developer%27s_Guide/Configuration/Styles 
+-->
+<Styles>
+	<Style name="Code" element="span">
+		<Attribute name="style" value="font-family: 'courier new', courier;font-size: x-small;" />
+	</Style>
+</Styles>

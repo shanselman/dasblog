@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<table name="00000073">
+	<table name="categories">
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="link" value="http://www.ntfaq.com/Articles/Index.cfm?ArticleID=24937"/>
+	<table name="notified">
+		<boolean name="homepage" value="true"/>
+		</table>
+	<string name="text" value="Here&apos;s another Windows XP tip I never new.&amp;nbsp; You can rename multiple files simultaneously.&amp;nbsp; Windows XP will automatically append a parenthesis and number for you.&amp;nbsp; This will be great for pictures I expect."/>
+	<string name="title" value="How can I perform a bulk file rename in Windows XP?"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				<table name="http://www.ntfaq.com/Articles/Index.cfm?ArticleID=24937">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Mon, 30 Dec 2002 08:19:40 GMT"/>
+	</table>

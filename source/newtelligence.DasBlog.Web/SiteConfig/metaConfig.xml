@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<MetaTags>
+  <MetaDescription></MetaDescription>
+  <MetaKeywords></MetaKeywords>
+</MetaTags>
+
+
+<!-- 
+
+In this XML file you can enter the meta description and the meta keywords for your blog home page (default.aspx).
+Example:
+
+<?xml version="1.0" standalone="yes"?>
+<MetaTags>
+  <MetaDescription>John Doe is a professional web developer. He is blogging about ASP.NET and web developing.</MetaDescription>
+  <MetaKeywords>ASP.NET Silverlight CSS HTML JavaScript</MetaKeywords>
+</MetaTags>
+
+-->

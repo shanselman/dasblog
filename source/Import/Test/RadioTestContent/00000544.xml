@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<table name="00000544">
+	<table name="categories">
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="link" value="http://www.ondotnet.com/pub/a/dotnet/2002/09/09/memento.html"/>
+	<string name="text" value="&lt;P&gt;&lt;A href=&quot;http://www.ondotnet.com/pub/a/dotnet/2002/09/09/memento.html&quot;&gt;Here&lt;/A&gt; is a good&amp;nbsp;description of how the Memento Pattern works.&lt;/P&gt;"/>
+	<string name="title" value="Object Serialization with the Memento Pattern"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				<table name="http://www.ondotnet.com/pub/a/dotnet/2002/09/09/memento.html">
+					<long name="ctPingSeconds" value="9"/>
+					<string name="errorstring" value=""/>
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flGotUrlFromAbout" value="false"/>
+					<boolean name="flPinged" value="true"/>
+					<boolean name="flSupportsTrackback" value="true"/>
+					<string name="pingUrl" value="http://www.oreillynet.com/cs/user/trackback/cs_msg?x-lr=cs_disc/&amp;x-lr2=a/2496&amp;x-a=submit&amp;trackback=1"/>
+					<date name="postDate" value="Fri, 02 Jan 2004 23:13:01 GMT"/>
+					<string name="postDescription" value=""/>
+					<string name="postTitle" value="Object Serialization with the Memento Pattern"/>
+					<date name="whenPing" value="Fri, 02 Jan 2004 23:13:01 GMT"/>
+					<table name="xDiscoveryInfo">
+						<table name="00001000&#009;RDF">
+							<table name="/atts">
+								<string name="namespace" value="rdf:"/>
+								<string name="xmlns:dc" value="http://purl.org/dc/elements/1.1/"/>
+								<string name="xmlns:rdf" value="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+								<string name="xmlns:trackback" value="http://madskills.com/public/xml/rss/module/trackback/"/>
+								</table>
+							<table name="00002000&#009;Description">
+								<table name="/atts">
+									<string name="dc:identifier" value="http://www.ondotnet.com/pub/a/dotnet/2002/09/09/memento.html"/>
+									<string name="dc:title" value="Object Serialization with the Memento Pattern"/>
+									<string name="namespace" value="rdf:"/>
+									<string name="rdf:about" value="http://www.ondotnet.com/pub/a/dotnet/2002/09/09/memento.html"/>
+									<string name="trackback:ping" value="http://www.oreillynet.com/cs/user/trackback/cs_msg?x-lr=cs_disc/&amp;x-lr2=a/2496&amp;x-a=submit&amp;trackback=1"/>
+									</table>
+								<string name="/pcdata" value=""/>
+								</table>
+							</table>
+						</table>
+					<table name="xTrackbackResponse">
+						<table name="00001000&#009;response">
+							<string name="00001000&#009;error" value="0"/>
+							</table>
+						</table>
+					</table>
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Fri, 02 Jan 2004 23:12:53 GMT"/>
+	</table>

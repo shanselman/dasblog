@@ -1,0 +1,25 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "newtelligence.DasBlog.Contrib.FCKeditor", "newtelligence.DasBlog.Contrib.FCKeditor\newtelligence.DasBlog.Contrib.FCKeditor.csproj", "{1601075B-26DA-4DD3-BAE6-6D167C9C907C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "newtelligence.DasBlog.Contrib.TinyMCEeditor", "newtelligence.DasBlog.Contrib.TinyMCEeditor\newtelligence.DasBlog.Contrib.TinyMCEeditor.csproj", "{E9C84472-778E-4ECA-90D1-DDF76D4B0A37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1601075B-26DA-4DD3-BAE6-6D167C9C907C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1601075B-26DA-4DD3-BAE6-6D167C9C907C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1601075B-26DA-4DD3-BAE6-6D167C9C907C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1601075B-26DA-4DD3-BAE6-6D167C9C907C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9C84472-778E-4ECA-90D1-DDF76D4B0A37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9C84472-778E-4ECA-90D1-DDF76D4B0A37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9C84472-778E-4ECA-90D1-DDF76D4B0A37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9C84472-778E-4ECA-90D1-DDF76D4B0A37}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

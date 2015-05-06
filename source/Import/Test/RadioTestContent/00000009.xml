@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<table name="00000034">
+	<table name="categories">
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="text" value="&lt;P&gt;Today I came across a link on the &lt;A href=&quot;http://radio.userland.com/news&quot;&gt;Radio Userland news page&lt;/A&gt;(which by the way I need to check out/subscribe to) that describes &lt;A href=&quot;http://radio.weblogs.com/0103924/categories/radioTutorials/workingwithradio.html&quot;&gt;working with FrontPage and Radio&lt;/A&gt;. Well given my experience with Visual Studio.NET you can be sure there is little chance of me going back to Microsoft FrontPage so why do I mention this?&amp;nbsp; Well, I figure that if you can change your editor to be Microsoft FrontPage you can presumably also change it to be Visual Studio.NET.&amp;nbsp; Unfortunately, it wasn&apos;t as cool (or perhaps it was too easy/obvious)&amp;nbsp;as I would have liked.&amp;nbsp;&amp;nbsp;The key information seems to start at &quot;&lt;A href=&quot;http://radio.weblogs.com/0103924/categories/radioTutorials/integrating.html&quot;&gt;Integrating FrontPage files into your Radio theme&lt;/A&gt;&quot;.&amp;nbsp; As you step through the tuturial, you&amp;nbsp;discover that was is&amp;nbsp;described&amp;nbsp;is essentially to&amp;nbsp;create the files you want in FrontPage and then copy the HTML into the Weblog editor with the &quot;Source&quot; view selected.&lt;/P&gt;&#013;&#010;&lt;P&gt;By the way, this same tutorial contains a link&amp;nbsp;for allowing users to automatically open all links in a new window.&amp;nbsp; Fortunately, it also had a link to instructions for how to do this.&amp;nbsp;&amp;nbsp;Check out&amp;nbsp; &quot;&lt;A href=&quot;http://www.blogger.com/howto/newwindow.pyra&quot;&gt;How to toggle new window linking&lt;/A&gt;&quot;.&lt;/P&gt;&#013;&#010;&lt;P&gt;You know one of the problems with this Weblog thing is that there are simply too many things that I am learning about and I can&apos;t keep up with logging them all.&amp;nbsp; &lt;/P&gt;&#013;&#010;&lt;P&gt;One final note, I have been wanting to allow folks to subscribe to my weblog via email.&amp;nbsp; I found a reference to &lt;A href=&quot;http://www.bloglet.com&quot;&gt;Bloglet&lt;/A&gt; as&amp;nbsp;a means for doing this but I couldn&apos;t figure out what I was supposed to enter for the Server text box.&amp;nbsp; I posted a message with &lt;A href=&quot;http://radio.userland.com/discuss/msgReader$20569?mode=topic&amp;amp;y=2002&amp;amp;m=11&amp;amp;d=10&quot;&gt;this question&lt;/A&gt; on the Radio Userland discussion list.&lt;/P&gt;"/>
+	<string name="title" value="Radio and 1) Using Visual Studio.NET, 2) Opening Links in New Windows, 3) Subscribing Via Email"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				<table name="http://radio.userland.com/discuss/msgReader$20569?mode=topic&amp;amp;y=2002&amp;amp;m=11&amp;amp;d=10">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://radio.userland.com/news">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://radio.weblogs.com/0103924/categories/radioTutorials/integrating.html">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://radio.weblogs.com/0103924/categories/radioTutorials/workingwithradio.html">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://www.blogger.com/howto/newwindow.pyra">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://www.bloglet.com/">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Sun, 10 Nov 2002 14:56:32 GMT"/>
+	</table>

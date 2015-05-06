@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<table name="00000041">
+	<table name="categories">
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="text" value="While trying to install some software from my new Cannon PowerShot S40 camera today I came across a new tab on the file properties dialog of Windows 2003 .NET Server.&amp;nbsp; The tab is a &quot;Compatibility&quot; tab that I don&apos;t recall seeing previously (although it is probably on XP and I just don&apos;t remember it.)&amp;nbsp; Anyway, I thought I just wanted to make a note of it.&amp;nbsp; The purpose of the tab is to allow you to configure the application so that a different OS is emulated when it runs."/>
+	<string name="title" value="Windows .NET 2003 Compatibility Trick"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Tue, 19 Nov 2002 06:30:37 GMT"/>
+	</table>

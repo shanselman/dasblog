@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<table name="00000546">
+	<table name="categories">
+		<boolean name="My Learning About Radio" value="true"/>
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="link" value="http://blogs.law.harvard.edu/tech/rss"/>
+	<string name="text" value="&lt;P&gt;Over the past few days I have been digging into the DasBlog.&amp;nbsp; As part of that effort I needed to check out an &lt;A href=&quot;http://blogs.law.harvard.edu/tech/rss#ltimagegtSubelementOfLtchannelgt&quot;&gt;item&apos;s link&lt;/A&gt;&amp;nbsp;element in the &lt;A href=&quot;http://blogs.law.harvard.edu/tech/rss&quot;&gt;RSS 2.0 Specification&lt;/A&gt;.&amp;nbsp; It was surprising to me (I don&apos;t follow this stuff very closely) that this is essentially the last version of RSS as&amp;nbsp;&lt;A href=&quot;http://blogs.law.harvard.edu/tech/rss#roadmap&quot;&gt;described at the end of the specification and quoted&lt;/A&gt; here:&lt;/P&gt;&#013;&#010;&lt;BLOCKQUOTE dir=ltr style=&quot;MARGIN-RIGHT: 0px&quot;&gt;&#013;&#010;&lt;P&gt;&quot;The purpose of this work is to help it become a unchanging thing, to foster growth in the market that is developing around it, and to clear the path for innovation in new syndication formats. Therefore, the RSS spec is, for all practical purposes, frozen at version 2.0.1.&quot;&lt;/P&gt;&lt;/BLOCKQUOTE&gt;"/>
+	<string name="title" value="RSS 2.0 Specification"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				<table name="http://blogs.law.harvard.edu/tech/rss">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://blogs.law.harvard.edu/tech/rss#ltimagegtSubelementOfLtchannelgt">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://blogs.law.harvard.edu/tech/rss#roadmap">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Fri, 02 Jan 2004 23:24:32 GMT"/>
+	</table>

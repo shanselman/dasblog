@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<table name="00000547">
+	<table name="categories">
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="text" value="&lt;P&gt;I had some trouble getting the GotDotNet Windows Forms souce code control tool to work.&amp;nbsp; Each time I tried to go to source code control for a project an error would occur giving me the option to re-downoad the tool an re-run the tool.&amp;nbsp; The exact error was:&lt;/P&gt;&#013;&#010;&lt;BLOCKQUOTE dir=ltr style=&quot;MARGIN-RIGHT: 0px&quot;&gt;&#013;&#010;&lt;P&gt;&quot;Before the GotDotNet Workspaces Windows Forms control can be run, some changes must be made to the .NET Framework security settings on your computer.&quot;&lt;/P&gt;&lt;/BLOCKQUOTE&gt;&#013;&#010;&lt;P&gt;Fortunately, there was also a link that described how to manually configure the security settings.&amp;nbsp; After some investigation I discovered that the problem related to the fact that Whidbey was installed.&amp;nbsp; To overcome the problem I had to follow the instructions using the .NET 2.0 Configuration Tool.&amp;nbsp; The instructions are as follows:&lt;/P&gt;&#013;&#010;&lt;OL&gt;&#013;&#010;&lt;LI&gt;Click Start, Control Panel and open the Administrative Tools. &#013;&#010;&lt;LI&gt;Start the Microsoft .NET Framework Configuration tool. &#013;&#010;&lt;LI&gt;Using the treeview on the left, navigate to &lt;I&gt;My Computer\Runtime&amp;nbsp;Security&amp;nbsp;Policy\Machine\Code&amp;nbsp;Groups\All_Code&lt;/I&gt; &#013;&#010;&lt;LI&gt;Start the Create Code Group Wizard by clicking &apos;Add a Child Code Group&apos; &lt;/LI&gt;&#013;&#010;&lt;LI&gt;Provide a code group name: &lt;I&gt;GotDotNet_Workspaces&lt;/I&gt; &#013;&#010;&lt;LI&gt;Provide a code group description: &lt;I&gt;Security group for GotDotNet Workspaces&lt;/I&gt; &#013;&#010;&lt;LI&gt;Provide a condition type: &lt;I&gt;URL&lt;/I&gt; &#013;&#010;&lt;LI&gt;Provide a trusted URL: &lt;I&gt;http://www.gotdotnet.com/community/workspaces/*&lt;/I&gt; &#013;&#010;&lt;LI&gt;Use an existing permission set: &lt;I&gt;FullTrust&lt;/I&gt; &lt;/LI&gt;&#013;&#010;&lt;LI&gt;Finish the Create Code Group Wizard and close the Microsoft .NET Framework Configuration tool. &#013;&#010;&lt;LI&gt;Close all Internet Explorer windows and restart your browser.&lt;/LI&gt;&lt;/OL&gt;"/>
+	<string name="title" value="GotDotNet Souce Code Control and Whidbey"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Mon, 05 Jan 2004 15:38:36 GMT"/>
+	</table>

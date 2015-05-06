@@ -1,0 +1,38 @@
+To install FCKeditor for dasBlog:
+
+These instructions will use the term <dasBlog> to represent the dasBlog web folder.
+
+1) Copy newtelligence.DasBlog.Contrib.FCKeditor.dll to <dasBlog>\bin
+
+2) Download version 2.2 of FCKeditor and FCKeditor.NET 
+	http://www.fckeditor.net/
+	http://sourceforge.net/project/showfiles.php?group_id=75348&package_id=137125
+
+3) Copy FredCK.FCKeditorV2 (from FCKeditor.NET) to <dasBlog>\bin
+
+4) Deploy the FCKeditor folder (from the FCKeditor distribution) as a direct subfolder of <dasBlog> 
+ ex: <dasBlog>\FCKeditor
+
+From http://wiki.fckeditor.net/Developer%27s_Guide/Installation :
+Not all files are required by the editor to run and you could reduce the number and size of the files to be published in a production environment by removing:
+    * All directories that start with an underscore (like _docs and _sample) including "editor/_source".
+    * Any skins you are not using from the "editor/skins" directory.
+    * Any "smiley" collections you are not using from the "editor/images/smiley" directory.
+    * Any plugins you don't need from the "editor/plugins" directory.
+    * Any connectors you don't need from the "editor/filemanager/browser/default/connectors" directory.
+    * Any "fckeditor.ext" files you don't need from the root of the editor package (based on your server side language).
+    
+5) Copy the files in the SiteConfig folder of the FCK Contrib project to the <dasBlog>\SiteConfig folder.
+
+6) Optionally, copy the FCKeditor folder included in Contrib package into the <dasBlog> folder, adding and replacing files in the existing <dasBlog>\FCKeditor folder.
+   This step should only be performed if you downloaded v2.2 of FCKeditor. Future versions may be incompatible with these customizations.
+   This step is only needed to pare down the default toolbar to buttons relevant to dasBlog usage, and to add the "Insert Code" button.
+
+7) Login to your dasBlog installation and go to the Configuration page.
+
+8) In the setting labeled "Editor control adapter", enter the following line, exactly as it appears:
+newtelligence.DasBlog.Contrib.FCKeditorAdapter, newtelligence.DasBlog.Contrib.FCKeditor
+
+9) Save your configuration.
+
+10) Go to Add Entry and confirm the FCKeditor is displayed.

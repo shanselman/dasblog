@@ -1,0 +1,29 @@
+Edit Control Provider patch for dasBlog
+Januaray 24, 2006
+
+This release introduces a mechanism for plugging in new editors.
+
+To add support for a different text editor, you just need to write a simple adapter class that derives from newtelligence.DasBlog.Web.Core.EditControlAdapter.
+
+Your editor of choice is configured on the Configuration page, with the "Editor Control adapter" setting (or by directly editing the <EntryEditControl /> element in SiteConfig\site.config). You must enter the fully-qualified, complex (includes the assembly) name of the adapter class. It is the complex format used to register custom HttpModules or HttpHandlers, and described in:
+http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfsystemtypeclassgettypetopic1.asp
+
+To use FreeTextBox, leave your EntryEditControl empty.
+To use a plain TextBox editor, set it to: newtelligence.DasBlog.Web.TextBoxAdapter
+To use FCKeditor, download the separate package "newtelligence.DasBlog.Contrib.FCKeditor" and follow the deployment instructions. Your EntryEditControl setting will be:
+newtelligence.DasBlog.Contrib.FCKeditorAdapter, newtelligence.DasBlog.Contrib.FCKeditor
+
+
+Issues:
+
+ - Setting the configuration isn't very "user-friendly". Programmers may understand the complex name form ("type, assembly") of a class; but others will probably be confused. It may make sense to register a "friendly name" for each adapter in web.config, and then the Configuration page would offer a drop-down list of the friendly names for available adapters.
+
+ - The editor type is discovered and instantiated via reflection on each page load (only on pages containing the editor, of course). It would probably make sense to cache a reference to the ConstructorInfo for the currently configured adapter, to speed up instantiation.
+
+ - Need to figure out how we want to distribute "add-ons". Should they be part of the main distribution? A separate trunk in the dasblogce sf.net project? Their own sf.net project?
+I intentionally kept the FCKeditor adapter separate to avoid any potential licensing issues from distributing LGPL code (FCKeditor) with newtelligence licensed code.
+
+
+Joshua Flanagan
+joshuaflanagan@yahoo.com
+http://flimflan.com/blog

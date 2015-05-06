@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<table name="00000013">
+	<table name="categories">
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="text" value="&lt;P class=MsoNormal style=&quot;MARGIN: 0in 0in 0pt&quot;&gt;I can&apos;t believe how much time I have spent trying to figure this out.&amp;nbsp; How on earth do non-computer people do this stuff?&amp;nbsp; Yesterday and today I have probably spent close to 5 hours trying to produce one small video that I captured off my digital video camera.&amp;nbsp; This involved &quot;simply&quot; capturing the video, removing the gunk that I didn&apos;t need to include, saving it and posting it the Internet.&amp;nbsp; After approximately 5 hours, however, I am still not there yet and feel that I still don&apos;t &quot;get&quot; the video editing software, Adobe Premiere 6.0.&amp;nbsp; Probably the biggest misunderstanding was that once a video (like an AVI file) is added to a bin and then dragged to the timeline, you are not editing the video that is in the bin.&amp;nbsp; Rather, you are creating an entirely new video.&amp;nbsp; Other issues include the frustration with sometimes trying to preview the project and not seeing the video change from the initial frame, utter confusion over the different splicing mechanisms just to name a few.&amp;nbsp; The UI on this is so confusing I actually believe I need to find someone who has done this before and do a quick walk through.&amp;nbsp;&lt;/P&gt;"/>
+	<string name="title" value="Frustration with Video Editing and Adobe Premiere 6.0 Specifcally"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Tue, 29 Oct 2002 09:07:06 GMT"/>
+	</table>

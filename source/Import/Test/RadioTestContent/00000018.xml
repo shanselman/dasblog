@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<table name="00000070">
+	<table name="categories">
+		<boolean name="My Learning About Radio" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<table name="notified">
+		<boolean name="homepage" value="true"/>
+		</table>
+	<string name="text" value="&lt;P&gt;When posting about a trip I have made I would like to back date the post to when I was actually on the trip.&amp;nbsp; I presume this could be done by editing the&amp;nbsp;XML files but I am uncertain of the exact procedure and I would like to have it be a little more &quot;automated&quot; so as to prevent an error.&amp;nbsp; I wonder if changing the date on the computer may be a type of&amp;nbsp;hack method.&lt;/P&gt;"/>
+	<string name="title" value="Back Dating a Post"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Mon, 30 Dec 2002 02:00:51 GMT"/>
+	</table>

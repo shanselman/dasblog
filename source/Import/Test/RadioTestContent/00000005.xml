@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<table name="00000015">
+	<table name="categories">
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="link" value="http://radio.userland.com/discuss/msgReader$20215?mode=topic&amp;y=2002&amp;m=10&amp;d=30"/>
+	<string name="text" value="&lt;P&gt;I have tried for several days to configurm my weblog to be published to Michaelis.net.&amp;nbsp; At first I could only get the xml to replicate.&amp;nbsp; Images were not replicating, however.&amp;nbsp; The issue turned out to be the path setting in my #upstream.xml file.&amp;nbsp; Once I got that configured, the categories were still not synchronizing.&amp;nbsp; I posted a message the discussion forum, &lt;A href=&quot;http://radio.userland.com/discuss/msgReader$20215?mode=topic&amp;amp;y=2002&amp;amp;m=10&amp;amp;d=30&quot;&gt;Categories Not Successfully Ftp&apos;ed/Replicated&lt;/A&gt;, and was told to add a test item.&amp;nbsp; After doing this everything synchronized nicely.&amp;nbsp;&lt;/P&gt;"/>
+	<string name="title" value="Categories Not Successfully Ftp&apos;ed/Replicated"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				<table name="http://radio.userland.com/discuss/msgReader$20215?mode=topic&amp;amp;y=2002&amp;amp;m=10&amp;amp;d=30">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://radio.userland.com/discuss/msgReader$20215?mode=topic&amp;y=2002&amp;m=10&amp;d=30">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Thu, 31 Oct 2002 06:24:48 GMT"/>
+	</table>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<table name="00000022">
+	<table name="categories">
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="text" value="&lt;P&gt;Those of us that administer remote machines through terminal services will no doubt have encountered times when they get disconnected but the terminal server session continues on. This would be no bit deal if it wasn&apos;t for the fact that there can only be a maximum of 2 sessions (assuming the Administration mode).&amp;nbsp; Once both sessions get used up there is no more remote connection and one can&apos;t administer the machine.&lt;/P&gt;&#013;&#010;&lt;P&gt;Fortunately there is a command line way to enable reset of a session.&amp;nbsp; Log in to the remote machine via Telnet, obviously this assumes you have Telnet running on the remote machine, and use the RESET SESSION command as follows:&lt;/P&gt;&#013;&#010;&lt;BLOCKQUOTE dir=ltr style=&quot;MARGIN-RIGHT: 0px&quot;&gt;&#013;&#010;&lt;P&gt;&lt;FONT face=&quot;Courier, Monospace&quot;&gt;RESET SESSION 1&lt;/FONT&gt;&lt;/P&gt;&lt;/BLOCKQUOTE&gt;&#013;&#010;&lt;P dir=ltr&gt;In this example, 1 is the Session ID.&amp;nbsp;The Session ID is usually 1 or 2 since you can only have two sessions in Administration mode.&amp;nbsp; However, to view a list of current sessions&amp;nbsp;use the QUERY SESSION command:&lt;/P&gt;&#013;&#010;&lt;BLOCKQUOTE dir=ltr style=&quot;MARGIN-RIGHT: 0px&quot;&gt;&#013;&#010;&lt;P dir=ltr&gt;&lt;FONT face=&quot;Courier, Monospace&quot;&gt;QUERY SESSION&lt;/FONT&gt;&lt;/P&gt;&lt;/BLOCKQUOTE&gt;&#013;&#010;&lt;P dir=ltr&gt;This will list out all the sessions on the computer along with their state, such as how long they have been idle.&amp;nbsp; Note that the help on the reset command is not very helpful unless you enter the full&lt;/P&gt;&#013;&#010;&lt;BLOCKQUOTE dir=ltr style=&quot;MARGIN-RIGHT: 0px&quot;&gt;&#013;&#010;&lt;P dir=ltr&gt;&lt;FONT face=&quot;Courier, Monospace&quot;&gt;RESET SESSION /?&lt;/FONT&gt;&lt;/P&gt;&lt;/BLOCKQUOTE&gt;"/>
+	<string name="title" value="Resetting a Terminal Server Session Via Command Line/Telnet"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Sat, 02 Nov 2002 15:01:39 GMT"/>
+	</table>

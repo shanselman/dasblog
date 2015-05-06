@@ -1,0 +1,71 @@
+// this is based on the FCK editor contribution
+// and TinyMCE 2.0.9 at the time of this writing
+
+To install TinyMCE for dasBlog:
+
+These instructions will use the term <dasBlog> to represent the dasBlog web folder.
+
+1) Copy newtelligence.DasBlog.Contrib.TinyMCEeditor.dll to <dasBlog>\bin
+(created by building this project - usually ends up in \source\newtelligence.DasBlog.Web\bin) 
+
+
+2) Download TinyMCE from
+	http://tinymce.moxiecode.com
+
+You will need the /tinymce folder from the contents you extract
+
+3) Deploy the tinyMCE folder (from the tinymce distribution) as a direct subfolder of <dasBlog> 
+@ <dasBlog>/tinymce
+
+4) You will need to copy the tinymce/content.css to the tinymce folder (this adds pretty editing)
+@ <dasBlog/tinymce
+
+
+
+//********************************
+// IF YOU WANT TO IMPROVE THE LOAD TIME OF TINYMCE
+//********************************
+
+// COmment line 32 in TinyMCEeditorAdapter.cs
+// Un-Comment line 35 in TinyMCEeditorAdapter.cs
+
+// And perform down to END LOAD TIME IMPROVEMENT
+
+// 4.5 is outdated
+4.5) Because the native JS only solution is SLOW LOADING - You need to enable the caching script available from:
+http://sourceforge.net/project/downloading.php?groupname=tinymce&filename=tinymce_compressor_net_1_0_5.zip&use_mirror=internap
+
+//for some reason the compression script doesn't work out of the box.
+// I have updated a version on my web site until someone comes up with a reason
+// why the oob version doesn't work
+4.6) Instead of downloading the Out of box version from Moxy, you will need my version:
+
+ http://www.jforsythe.com/jforsythe/proj_dasblog_addons.aspx#tabi_1
+
+
+4.75) Copy only the two files:
+tiny_mce_gzip.aspx
+tiny_mce_gzip.js
+from tinymce_compressor_net_1_0_5.zip into the folder: 
+@ <dasBlog>/tinymce/jscripts/tiny_mce/* in the <dasblog> folder.
+The compression .dll in the Out of Box version .zip is the same as the one that is already included with dasBlog.
+
+
+
+
+// outdated section, dont worry about it if you get my version
+For some reason I am not able to get gZip working so I hardocde
+	supportsGzip = false;
+on line 89 in tiny_mce_gzip.aspx
+
+//**************************
+// END LOAD TIME IMPROVEMENT
+//*************************
+
+5) Bounce and then Login to your dasBlog installation and go to the Configuration page.
+
+6) You should now see the TinyMCE Editor Available for your use
+
+7) Save your configuration.
+
+8) Go to Add Entry and confirm the TinyMCEeditor is displayed.

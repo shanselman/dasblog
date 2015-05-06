@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<table name="00000543">
+	<table name="categories">
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="link" value="http://support.microsoft.com/default.aspx?scid=kb;EN-US;171074"/>
+	<string name="text" value="&lt;P&gt;Here&apos;s a simple but useful tip I wish I had known a long time ago.&lt;/P&gt;&#013;&#010;&lt;BLOCKQUOTE dir=ltr style=&quot;MARGIN-RIGHT: 0px&quot;&gt;&#013;&#010;&lt;P&gt;&quot;Sometimes it may be necessary to point to a Web site, file name, or other resource link (FTP, TELNET, NNTP, and so on) that contains spaces in the reference. In these situations, you can enclose the hyperlink that references these resources within the angle bracket characters....&quot;&lt;/P&gt;&lt;/BLOCKQUOTE&gt;"/>
+	<string name="title" value="How to Create Hyperlinks in Outlook Containing Spaces"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				<table name="http://support.microsoft.com/default.aspx?scid=kb;EN-US;171074">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Fri, 02 Jan 2004 22:45:45 GMT"/>
+	</table>

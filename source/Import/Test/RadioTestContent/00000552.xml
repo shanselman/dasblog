@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<table name="00000552">
+	<table name="categories">
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="link" value="http://www.pocketpcthoughts.com/forums/viewtopic.php?p=199831&amp;sid=e1e46fbe83ad8edbe378911c1268e924"/>
+	<string name="text" value="&lt;BLOCKQUOTE dir=ltr style=&quot;MARGIN-RIGHT: 0px&quot;&gt;&#013;&#010;&lt;P&gt;&lt;SPAN class=postbody&gt;&lt;IMG src=&quot;http://www.ananova.com/images/news/irkeyboardAP362x500.jpg&quot; border=0&gt;&lt;/SPAN&gt;&lt;/P&gt;&lt;/BLOCKQUOTE&gt;&#013;&#010;&lt;P&gt;I am guessing I would miss feeling the keys, especially the knobs on the F and J keys that help determine if your hands are in the right place.&amp;nbsp; Regardless... how cool is this!&lt;/P&gt;&#013;&#010;&lt;P&gt;Discussion of this can be found &lt;A href=&quot;http://www.pocketpcthoughts.com/forums/viewtopic.php?p=199831&amp;amp;sid=e1e46fbe83ad8edbe378911c1268e924&quot;&gt;here&lt;/A&gt;.&lt;/P&gt;"/>
+	<string name="title" value="Virtual Keyboard - Wickedly Cool"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				<table name="http://www.pocketpcthoughts.com/forums/viewtopic.php?p=199831&amp;amp;sid=e1e46fbe83ad8edbe378911c1268e924">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				<table name="http://www.pocketpcthoughts.com/forums/viewtopic.php?p=199831&amp;sid=e1e46fbe83ad8edbe378911c1268e924">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Mon, 12 Jan 2004 15:34:35 GMT"/>
+	</table>

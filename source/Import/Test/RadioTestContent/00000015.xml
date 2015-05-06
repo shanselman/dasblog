@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<table name="00000065">
+	<table name="categories">
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<table name="notified">
+		<boolean name="homepage" value="true"/>
+		</table>
+	<string name="text" value="&lt;P&gt;For some time now I have been wondering if one could delete a registry entry via a reg file.&amp;nbsp; I often use these files to make&amp;nbsp;configuration changes to the registry rather than manully opening up the registry and adding the files.&amp;nbsp; I still haven&apos;t found a reg file way of updating the registry but I have a better way.&amp;nbsp; There is a&amp;nbsp;REG command that can do what I am looking for.&amp;nbsp; REG /? reveals the following syntax.&lt;/P&gt;&#013;&#010;&lt;BLOCKQUOTE dir=ltr style=&quot;MARGIN-RIGHT: 0px&quot;&gt;&lt;FONT face=Monospace&gt;&#013;&#010;&lt;P&gt;REG DELETE KeyName [/v ValueName | /ve | /va] [/f]&lt;/P&gt;&#013;&#010;&lt;P&gt;&amp;nbsp; KeyName&amp;nbsp;&amp;nbsp;&amp;nbsp; [\\Machine\]FullKey&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; Machine&amp;nbsp; Name of remote machine - omitting defaults to the current machine&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Only HKLM and HKU are available on remote machines&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; FullKey&amp;nbsp; ROOTKEY\SubKey&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; ROOTKEY&amp;nbsp; [ HKLM | HKCU | HKCR | HKU | HKCC ]&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; SubKey&amp;nbsp;&amp;nbsp; The full name of a registry key under the selected ROOTKEY&lt;BR&gt;&amp;nbsp; ValueName&amp;nbsp; The value name, under the selected Key, to delete&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; When omitted, all subkeys and values under the Key are deleted&lt;BR&gt;&amp;nbsp; /ve&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; delete the value of empty value name &amp;lt;no name&amp;gt;&lt;BR&gt;&amp;nbsp; /va&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; delete all values under this key&lt;BR&gt;&amp;nbsp; /f&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Forces the deletion without propmt&lt;/P&gt;&#013;&#010;&lt;P&gt;Examples:&lt;/P&gt;&#013;&#010;&lt;P&gt;&amp;nbsp; REG DELETE HKLM\Software\MyCo\MyApp\Timeout&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; Deletes the registry key Timeout and its all subkeys and values&lt;/P&gt;&#013;&#010;&lt;P&gt;&amp;nbsp; REG DELETE &lt;A href=&quot;file://ZODIAC/HKLM/Software/MyCo&quot;&gt;\\ZODIAC\HKLM\Software\MyCo&lt;/A&gt; /v MTU&lt;BR&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; Deletes the registry value MTU under MyCo on ZODIAC&lt;/P&gt;&lt;FONT size=+0&gt;&lt;/BLOCKQUOTE&gt;&#013;&#010;&lt;P&gt;Note from the second example that you can use the reg command to modify settings on remote computers too (assuming you have appropriate security access.)&lt;/P&gt;&lt;/FONT&gt;&lt;/FONT&gt;"/>
+	<string name="title" value="REG Command"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Fri, 27 Dec 2002 23:57:36 GMT"/>
+	</table>

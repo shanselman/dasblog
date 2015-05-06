@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<table name="00000021">
+	<table name="categories">
+		<boolean name="Software Engineering" value="true"/>
+		</table>
+	<boolean name="flNotOnHomePage" value="false"/>
+	<string name="link" value="http://www.fawcette.com/vsm/2002_03/online/online_eprods/c_03_08/"/>
+	<string name="text" value="&lt;P&gt;I had never thought about adding field of type TraceSwitch to every one of my classes as described in the Visual Studio.NET magazine article &lt;A href=&quot;http://www.fawcette.com/vsm/2002_03/online/online_eprods/c_03_08/&quot;&gt;6 Quick C# Bug Fixes&lt;/A&gt;.&amp;nbsp; I don&apos;t like the fact that to use the field you then need to always call System.Diagnostics.Trace.WriteLineIf( ) or System.Diagnostics.Trace.WriteIf( ) to take advantage of it.&lt;/P&gt;&#013;&#010;&lt;P&gt;I wanted to post some sample code in which I used this idea but I havn&apos;t figured out how to do this yet.&amp;nbsp; The &lt;A href=&quot;http://127.0.0.1:5335/system/pages/prefs?page=5.9&quot;&gt;enclosure&lt;/A&gt; field seems to be a possibility but it wants a URL and I don&apos;t have a URL to stuff on my local machine, at least not one that would be available on the remote server.&amp;nbsp; Hmmmmm...&lt;/P&gt;"/>
+	<string name="title" value="C# Bug Prevention and Detection"/>
+	<table name="trackback">
+		<table name="inbound">
+			<table name="urls">
+				</table>
+			</table>
+		<table name="outbound">
+			<table name="urls">
+				<table name="http://www.fawcette.com/vsm/2002_03/online/online_eprods/c_03_08/">
+					<boolean name="flChecked" value="true"/>
+					<boolean name="flPinged" value="false"/>
+					<boolean name="flSupportsTrackback" value="false"/>
+					</table>
+				</table>
+			</table>
+		</table>
+	<date name="when" value="Sat, 02 Nov 2002 14:52:00 GMT"/>
+	</table>
