@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <SiteConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:config">
 
-<!-- REQUIRED: Your blog will not work properly until you configure these settings. -->
+  <!-- REQUIRED: Your blog will not work properly until you configure these settings. -->
 
   <!-- Set the Root to the base URL of this blog, such as http://example com/joeuser/blog/ -->
-  <Root>http://localhost/DasBlog/</Root>
+  <Root>http://localhost:9655/DasBlog/</Root>
 
   <!-- NotificationEMailAddress is the address used by the system to send you event (blog posts, comment posts) notifications.
        This address will NOT be published on the website. -->
@@ -12,10 +12,10 @@
 
   <!-- IMPORTANT: Make sure you also edit the settings in siteSecurity.config (in the same folder as this file) -->
 
-<!-- END OF REQUIRED SETTINGS -->
+  <!-- END OF REQUIRED SETTINGS -->
 
 
-<!-- SUGGESTED: personalization settings (these can all be configured through the administration interface once your blog is up and running) -->
+  <!-- SUGGESTED: personalization settings (these can all be configured through the administration interface once your blog is up and running) -->
 
   <!-- Banner text. (Note: not all themes show the Subtitle or Description.) -->
   <Title>My DasBlog!</Title>
@@ -30,9 +30,9 @@
   <Contact>dasblog@example.com</Contact>
   <Copyright>Your Name Here</Copyright>
 
-<!-- END OF SUGGESTED SETTINGS -->
+  <!-- END OF SUGGESTED SETTINGS -->
 
-<!-- Note: All of the above comments will be removed from this file automatically when you run the application -->
+  <!-- Note: All of the above comments will be removed from this file automatically when you run the application -->
 
   <RssDayCount>10</RssDayCount>
   <RssMainEntryCount>50</RssMainEntryCount>
@@ -64,15 +64,15 @@
   <EnablePingbackService>false</EnablePingbackService>
   <EnableStartPageCaching>false</EnableStartPageCaching>
   <EnableBlogrollDescription>false</EnableBlogrollDescription>
-  <EnableUrlRewriting>true</EnableUrlRewriting>
+  <EnableUrlRewriting>false</EnableUrlRewriting>
   <EnableFtb>true</EnableFtb>
   <EnableCrossposts>false</EnableCrossposts>
   <UseUserCulture>true</UseUserCulture>
   <ShowItemDescriptionInAggregatedViews>true</ShowItemDescriptionInAggregatedViews>
-  <EnableClickThrough>true</EnableClickThrough>
-  <EnableAggregatorBugging>true</EnableAggregatorBugging>
-  <DisplayTimeZoneIndex>85</DisplayTimeZoneIndex>
-  <AdjustDisplayTimeZone>true</AdjustDisplayTimeZone>
+  <EnableClickThrough>false</EnableClickThrough>
+  <EnableAggregatorBugging>false</EnableAggregatorBugging>
+  <DisplayTimeZoneIndex>4</DisplayTimeZoneIndex>
+  <AdjustDisplayTimeZone>false</AdjustDisplayTimeZone>
   <ContentDir>content/</ContentDir>
   <LogDir>logs/</LogDir>
   <BinariesDir>content/binary/</BinariesDir>
@@ -123,22 +123,27 @@
   <SmtpUserName></SmtpUserName>
   <SmtpPassword></SmtpPassword>
   <RssLanguage>en-us</RssLanguage>
-  <EnableSearchHighlight>true</EnableSearchHighlight>
+  <EnableSearchHighlight>false</EnableSearchHighlight>
   <EnableAutoSave>false</EnableAutoSave>
   <CommentsRequireApproval>false</CommentsRequireApproval>
   <CommentsAllowHtml>true</CommentsAllowHtml>
   <validCommentTags>
     <tag name="a" attributes="href,title" allowed="true" />
-    <tag name="b" attributes="" allowed="false" />
-    <tag name="blockquote" attributes="cite" allowed="false" />
-    <tag name="em" attributes="" allowed="false" />
-    <tag name="i" attributes="" allowed="false" />
+    <tag name="b" attributes="" allowed="true" />
+    <tag name="blockquote" attributes="cite" allowed="true" />
+    <tag name="em" attributes="" allowed="true" />
+    <tag name="i" attributes="" allowed="true" />
+    <tag name="pre" attributes="" allowed="true" />
     <tag name="strike" attributes="" allowed="true" />
-    <tag name="strong" attributes="" allowed="false" />
-    <tag name="sub" attributes="" allowed="false" />
-    <tag name="sup" attributes="" allowed="false" />
-    <tag name="u" attributes="" allowed="false" />
+    <tag name="strong" attributes="" allowed="true" />
+    <tag name="sub" attributes="" allowed="true" />
+    <tag name="super" attributes="" allowed="true" />
+    <tag name="u" attributes="" allowed="true" />
+    <tag name="ul" attributes="" allowed="true" />
+    <tag name="ol" attributes="" allowed="true" />
+    <tag name="li" attributes="" allowed="true" />
   </validCommentTags>
+  <EnableCoComment>false</EnableCoComment>
   <CommentsAllowGravatar>false</CommentsAllowGravatar>
   <CommentsGravatarNoImgPath />
   <CommentsGravatarSize />
@@ -156,8 +161,8 @@
   <DefaultLatitude>0</DefaultLatitude>
   <DefaultLongitude>0</DefaultLongitude>
   <EnableDefaultLatLongForNonGeoCodedPosts>false</EnableDefaultLatLongForNonGeoCodedPosts>
-  <HtmlTidyContent>true</HtmlTidyContent>
-  <ResolveCommenterIP>true</ResolveCommenterIP>
+  <HtmlTidyContent>false</HtmlTidyContent>
+  <ResolveCommenterIP>false</ResolveCommenterIP>
   <AllowOpenIdComments>false</AllowOpenIdComments>
   <AllowOpenIdAdmin>false</AllowOpenIdAdmin>
   <BypassSpamOpenIdComment>false</BypassSpamOpenIdComment>
