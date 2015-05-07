@@ -7,6 +7,11 @@
 *.userosscache
 *.sln.docstates
 
+# DasBlog files
+*.events.log
+*.events.zip
+*.events.log.zip
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
