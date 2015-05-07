@@ -1,15 +1,7 @@
 <%@ Register TagPrefix="cc1" Namespace="WebControlCaptcha" Assembly="WebControlCaptcha" %>
 <%@ Control Language="c#" CodeBehind="CommentViewBox.ascx.cs" AutoEventWireup="True" Inherits="newtelligence.DasBlog.Web.CommentViewBox" TargetSchema="http://schemas.microsoft.com/intellisense/ie5" %>
 <div id="content" runat="server" class="bodyContentStyle">
-    <!-- BEGIN ID SELECTOR -->
 
-    <script type="text/javascript">
-       idselector_input_id = '<%= openid_identifier.ClientID %>';
-    </script>
-
-    <script type="text/javascript" id="__openidselector" src="https://www.idselector.com/selector/f2b823bfcf61d5c04bd1d839321fa4e360d307f3" charset="utf-8"></script>
-
-    <!-- END ID SELECTOR -->
     <div runat="server" id="commentViewContent">
     </div>
     <div id="commentViewEntry" class="commentViewBoxStyle">
