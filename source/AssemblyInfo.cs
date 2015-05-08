@@ -15,7 +15,7 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("dasBlog 4.0.0")]
 [assembly: AssemblyDescription("dasBlog 4.0.0 ASP.NET Blogging Engine")]
-[assembly: AssemblyProduct("newtelligence dasBlog")]
+[assembly: AssemblyProduct("dasBlog")]
 [assembly: AssemblyCopyright("")]
 [assembly: ComVisible(false)]
 [assembly: CLSCompliant(false)]
