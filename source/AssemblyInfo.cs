@@ -13,14 +13,14 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("dasBlog 2.3.1")]
-[assembly: AssemblyDescription("dasBlog 2.3.1 ASP.NET Blogging Engine")]
+[assembly: AssemblyTitle("dasBlog 4.0.0")]
+[assembly: AssemblyDescription("dasBlog 4.0.0 ASP.NET Blogging Engine")]
 [assembly: AssemblyProduct("newtelligence dasBlog")]
-[assembly: AssemblyCopyright("Copyright (c) 2012 newtelligence AG")]
+[assembly: AssemblyCopyright("")]
 [assembly: ComVisible(false)]
 [assembly: CLSCompliant(false)]
 [assembly: Guid("22F15D36-4E7E-4c9b-A79C-F0A2177EE97B")]
-[assembly: AssemblyVersion("2.3.12105.0")]
-[assembly: AssemblyFileVersion("2.3.12105.0")]
+[assembly: AssemblyVersion("4.0.0.0")]
+[assembly: AssemblyFileVersion("4.0.0.0")]
 
 
