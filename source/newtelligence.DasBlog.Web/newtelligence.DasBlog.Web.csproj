@@ -1054,7 +1054,7 @@
       <DependentUpon>SyndicationServiceExperimental.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TextEditors\CKEditor.cs" />
+    <Compile Include="TextEditors\NiceEditAdapter.cs" />
     <Compile Include="TextEditors\TextBoxAdapter.cs">
       <SubType>Code</SubType>
     </Compile>

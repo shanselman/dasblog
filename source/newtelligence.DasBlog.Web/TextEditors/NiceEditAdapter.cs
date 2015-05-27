@@ -5,30 +5,29 @@ using newtelligence.DasBlog.Web.Core;
 
 namespace newtelligence.DasBlog.Web.TextEditors
 {
-    public class CKEditor : EditControlAdapter
+    public class NiceEditAdapter : EditControlAdapter
     {
         private TextBox control;
 
-        public CKEditor()
+        public NiceEditAdapter()
         {
 
             control = new TextBox();
             control.TextMode = TextBoxMode.MultiLine;
-            control.ID = "editor1";
+            control.ID = "editor";
         }
 
         public override void Initialize()
         {
-            string ckeScriptUrl = "\"//cdn.ckeditor.com/4.4.7/standard/ckeditor.js\"";
-
-            string insertCKEHandler = "<script language=\"javascript\" type=\"text/javascript\" src=" + ckeScriptUrl + "></script>";
+            string niceScriptUrl = "\"//js.nicedit.com/nicEdit-latest.js\"";
+            string insertNiceHandler = string.Format("<script language=\"javascript\" type=\"text/javascript\" src={0}></script>", niceScriptUrl);
 
             if (this.control.Visible)
             {
-                insertCKEHandler += @"<script language=""javascript"" type=""text/javascript"">CKEDITOR.replace('EditUserBox$editor1');</script>";
+                insertNiceHandler += @"<script type=""text/javascript"">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>";
             }
 
-            this.Control.Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "insertCKEHandler", insertCKEHandler);
+            this.Control.Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "insertNiceHandler", insertNiceHandler);
         }
 
         public override bool HasText()

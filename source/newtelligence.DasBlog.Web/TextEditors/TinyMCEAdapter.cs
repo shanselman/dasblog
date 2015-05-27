@@ -22,9 +22,9 @@ namespace newtelligence.DasBlog.Web.TextEditors
 
         public override void Initialize()
         {
-            string TinyMCEPath = "\"//tinymce.cachefly.net/4.1/tinymce.min.js\"";
+            string tinyMCEPath = "\"//tinymce.cachefly.net/4.1/tinymce.min.js\"";
 
-            string insertMCEHandler = "<script language=\"javascript\" type=\"text/javascript\" src=" + TinyMCEPath + "></script>";
+            string insertMCEHandler = string.Format("<script language=\"javascript\" type=\"text/javascript\" src={0}></script>", tinyMCEPath);
 
             if (this.control.Visible)
             {
