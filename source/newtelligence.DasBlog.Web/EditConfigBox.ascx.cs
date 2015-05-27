@@ -266,7 +266,7 @@ namespace newtelligence.DasBlog.Web
                 }
                 DataBind();
 
-                ListItem li = drpEntryEditControl.Items.FindByValue(siteConfig.EntryEditControl);
+                ListItem li = drpEntryEditControl.Items.FindByText(siteConfig.EntryEditControl);
                 if (li != null)
                 {
                     li.Selected = true;
