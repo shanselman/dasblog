@@ -1,8 +1,9 @@
 using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using newtelligence.DasBlog.Web.Core;
 
-namespace newtelligence.DasBlog.Web.Core
+namespace newtelligence.DasBlog.Web.TextEditors
 {
 	/// <summary>
 	/// Converts the TextBox control to the interface needed by dasBlog

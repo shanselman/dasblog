@@ -18,6 +18,7 @@ using newtelligence.DasBlog.Runtime;
 using newtelligence.DasBlog.Util;
 using newtelligence.DasBlog.Util.Html;
 using newtelligence.DasBlog.Web.Core;
+using newtelligence.DasBlog.Web.TextEditors;
 
 namespace newtelligence.DasBlog.Web
 {
@@ -261,7 +262,7 @@ namespace newtelligence.DasBlog.Web
                 //Reasonable default
                 if (string.IsNullOrEmpty(siteConfig.EntryEditControl))
                 {
-                    siteConfig.EntryEditControl = typeof(FreeTextBoxAdapter).AssemblyQualifiedName;
+                    siteConfig.EntryEditControl = typeof(TinyMCEAdapter).AssemblyQualifiedName;
                 }
                 DataBind();
 

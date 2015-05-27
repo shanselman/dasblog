@@ -2,6 +2,7 @@ using System;
 using System.Web;
 using newtelligence.DasBlog.Runtime;
 using newtelligence.DasBlog.Web.Core;
+using newtelligence.DasBlog.Web.TextEditors;
 
 namespace newtelligence.DasBlog.Web
 {

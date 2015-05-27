@@ -50,6 +50,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using newtelligence.DasBlog.Runtime;
 using newtelligence.DasBlog.Web.Core;
+using newtelligence.DasBlog.Web.TextEditors;
 
 namespace newtelligence.DasBlog.Web
 {
@@ -358,7 +359,7 @@ namespace newtelligence.DasBlog.Web
         {
             base.OnInit(e);
 
-            this.editControl = EditControlProvider.CreateEditControl<FreeTextBoxAdapter>();
+            this.editControl = EditControlProvider.CreateEditControl<TinyMCEAdapter>();
             this.editControlHolder.Controls.Add(editControl.Control);
             this.editControl.Initialize();
         }

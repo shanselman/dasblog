@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml.Serialization;
 using newtelligence.DasBlog.Web.Core;
+using newtelligence.DasBlog.Web.TextEditors;
 
 namespace newtelligence.DasBlog.Web
 {
@@ -97,7 +98,7 @@ namespace newtelligence.DasBlog.Web
             InitializeComponent();
             base.OnInit(e);
 
-            this.editControl = EditControlProvider.CreateEditControl<FreeTextBoxAdapter>();
+            this.editControl = EditControlProvider.CreateEditControl<TinyMCEAdapter>();
             this.editControlHolder.Controls.Add(editControl.Control);
             this.editControl.Initialize();
             this.editControl.Width = Unit.Percentage(99d);

@@ -935,9 +935,6 @@
     <Compile Include="FormatPage.aspx.designer.cs">
       <DependentUpon>FormatPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FreeTextBoxAdapter.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
       <SubType>Code</SubType>
@@ -1057,7 +1054,8 @@
       <DependentUpon>SyndicationServiceExperimental.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TextBoxAdapter.cs">
+    <Compile Include="TextEditors\CKEditor.cs" />
+    <Compile Include="TextEditors\TextBoxAdapter.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ThemeBar.ascx.cs">
@@ -1088,6 +1086,7 @@
     <Compile Include="TimeLineControl.ascx.designer.cs">
       <DependentUpon>TimeLineControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="TextEditors\TinyMCEAdapter.cs" />
     <Compile Include="UserClickThroughs.aspx.cs">
       <DependentUpon>UserClickThroughs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
