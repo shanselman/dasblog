@@ -13,7 +13,7 @@ namespace newtelligence.DasBlog.Web.Core
 
         public static string StripHtml(this string text)
         {
-            text = Regex.Replace(text, "<.*?>", string.Empty);
+            text = Regex.Replace(text, "<.*?>", string.Empty, RegexOptions.Compiled);
             text = text.Replace("<", "");
             text = text.Replace(">", "");
             text = text.Replace("&quot;", "");

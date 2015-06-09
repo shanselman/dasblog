@@ -2,6 +2,7 @@
 using System.Web;
 using newtelligence.DasBlog.Runtime;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 namespace newtelligence.DasBlog.Web.Core
 {
@@ -20,6 +21,7 @@ namespace newtelligence.DasBlog.Web.Core
         private const string MetaTwitterImagePattern = "<meta name=\"twitter:image\" content=\"{0}\" />\r\n";
 
         private const string MetaFaceBookUrlPattern = "<meta name=\"og:url\" content=\"{0}\" />\r\n";
+        private const string MetaFaceBookImagePattern = "<meta name=\"og:image\" content=\"{0}\" />\r\n";
         private const string MetaFaceBookTitlePattern = "<meta name=\"og:title\" content=\"{0}\" />\r\n";
         private const string MetaFaceBookDescriptionPattern = "<meta name=\"og:description\" content=\"{0}\" />\r\n";
         private const string MetaFaceBookTypePattern = "<meta name=\"og:type\" content=\"blog\" />\r\n";
@@ -59,6 +61,14 @@ namespace newtelligence.DasBlog.Web.Core
             else if (currentUrl.IndexOf("commentview.aspx", StringComparison.OrdinalIgnoreCase) > -1 && !string.IsNullOrEmpty(HttpContext.Current.Request.QueryString["guid"]))
             {
                 Entry entry = dataService.GetEntry(HttpContext.Current.Request.QueryString["guid"]);
+                if (entry != null)
+                {
+                    metaTags = GetMetaTags(metaTags, entry);
+                }
+            }
+            else if (currentUrl.IndexOf("commentview.aspx", StringComparison.OrdinalIgnoreCase) > -1 && !string.IsNullOrEmpty(HttpContext.Current.Request.QueryString["title"]))
+            {
+                Entry entry = dataService.GetEntry(HttpContext.Current.Request.QueryString["title"]);
                 if (entry != null)
                 {
                     metaTags = GetMetaTags(metaTags, entry);
@@ -104,9 +114,18 @@ namespace newtelligence.DasBlog.Web.Core
                 blogPostDescription = entry.Description;
             }
 
-            twitterImage = FindFirstImage(blogPostDescription);
-            twitterVideo = FindFirstYouTubeVideo(blogPostDescription);
-
+            //This is dangerous stuff, don't freak out if it doesn't work.
+            try
+            {
+                twitterImage = FindFirstImage(blogPostDescription);
+                twitterVideo = FindFirstYouTubeVideo(blogPostDescription);
+            }
+            catch(Exception ex)
+            {
+                Trace.WriteLine("Exception looking for Images and Video: " + ex.ToString());
+                twitterImage = string.Empty;
+                twitterVideo = string.Empty;
+            }
             blogPostDescription = HttpUtility.HtmlDecode(blogPostDescription);
             blogPostDescription = blogPostDescription.RemoveLineBreaks();
             blogPostDescription = blogPostDescription.StripHtml();
@@ -152,6 +171,20 @@ namespace newtelligence.DasBlog.Web.Core
             //FaceBook OG Integration
             metaTags += string.Format(MetaFaceBookUrlPattern, SiteUtilities.GetPermaLinkUrl(entry));
             metaTags += string.Format(MetaFaceBookTitlePattern, entry.Title);
+
+            if (twitterImage.Length > 0)
+            {
+                metaTags += string.Format(MetaFaceBookImagePattern, twitterImage);
+            }
+            else if (twitterVideo.Length > 0)
+            {
+                metaTags += string.Format(MetaFaceBookImagePattern, twitterVideo);
+            }
+            else
+            {
+                metaTags += string.Format(MetaFaceBookImagePattern, smt.TwitterImage);
+            }
+
             metaTags += string.Format(MetaFaceBookDescriptionPattern, blogPostDescription.CutLongString(120));
             metaTags += MetaFaceBookTypePattern;
             metaTags += string.Format(MetaFaceBookAdminsPattern, smt.FaceBookAdmins);
@@ -177,7 +210,7 @@ namespace newtelligence.DasBlog.Web.Core
             string firstimage = string.Empty;
 
             //Look for all the img src tags...
-            Regex urlRx = new Regex("<img.+?src=[\"'](.+?)[\"'].*?>", RegexOptions.IgnoreCase);
+            Regex urlRx = new Regex("<img.+?src=[\"'](.+?)[\"'].*?>", RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
             MatchCollection matches = urlRx.Matches(blogcontent);
 
@@ -197,7 +230,7 @@ namespace newtelligence.DasBlog.Web.Core
             string firstVideo = string.Empty;
 
             //Look for all the img src tags...
-            Regex urlRx = new Regex("<iframe.+?src=[\"'](.+?)[\"'].*?>", RegexOptions.IgnoreCase);
+            Regex urlRx = new Regex("<iframe.+?src=[\"'](.+?)[\"'].*?>", RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
             MatchCollection matches = urlRx.Matches(blogcontent);
 
