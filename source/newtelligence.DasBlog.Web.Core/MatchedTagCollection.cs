@@ -1,24 +1,33 @@
+
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Globalization;
+using System.Text;
 using System.Text.RegularExpressions;
+using System.Web;
+
 
 namespace newtelligence.DasBlog.Web.Core
 {
+
+
+
     /// <summary>
     /// Converts a match collection to a tag collection. 
     /// Takes care of illegal tags, non-closed, and non-balanced end-tags.
     /// </summary>
-    public class MatchedTagCollection : Collection<MatchedTag>, IEnumerable<MatchedTag>
+    public class MatchedTagCollection : ICollection, IEnumerable
     {
+
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FilteredTagCollection"/> class.
         /// </summary>
         /// <param name="allowedTags">The allowed tags.</param>
         public MatchedTagCollection(ValidTagCollection allowedTags)
         {
+
             // param validation
             if (allowedTags == null) { throw new ArgumentNullException("allowedTags"); }
 
@@ -36,7 +45,7 @@ namespace newtelligence.DasBlog.Web.Core
             if (matches == null) { throw new ArgumentNullException("matches"); }
 
             // holds the tags in the order they were matched
-            store = new List<MatchedTag>(matches.Count);
+            store = new ArrayList(matches.Count);
             // pre-fill
             for (int i = 0; i < matches.Count; i++)
             {
@@ -167,10 +176,80 @@ namespace newtelligence.DasBlog.Web.Core
                 }
             }
         }
-        
+
+        /// <summary>
+        /// Copies the Matchedtags to the supplied array at the specified index.
+        /// </summary>
+        /// <param name="array">The array to copy the tags to.</param>
+        /// <param name="index">The start index.</param>
+        void ICollection.CopyTo(Array array, int index)
+        {
+            store.CopyTo(array, index);
+        }
+
+
+
+        /// <summary>
+        /// Returns an enumerator that can iterate through the collection of <see cref="MatchedTag" />s.
+        /// </summary>
+        /// <returns>
+        /// An <see cref="T:System.Collections.IEnumerator"/>
+        /// that can be used to iterate through the collection of <see cref="MatchedTag" />s.
+        /// </returns>
+        public IEnumerator GetEnumerator()
+        {
+            if (store == null)
+            {
+                store = new ArrayList();
+            }
+            return store.GetEnumerator();
+        }
+
+
+        /// <summary>
+        /// Gets the number of
+        /// elements contained in the <see cref="T:System.Collections.ICollection"/>.
+        /// </summary>
+        /// <value>The number of elements.</value>
+        public int Count
+        {
+            [DebuggerStepThrough]
+            get
+            {
+                return store.Count;
+            }
+        }
+
+        /// <summary>
+        /// Gets a value
+        /// indicating whether access to the <see cref="T:System.Collections.ICollection"/> is synchronized
+        /// (thread-safe).
+        /// </summary>
+        /// <value>Always returns <see langword="false" />.</value>
+        bool ICollection.IsSynchronized
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Gets an object that
+        /// can be used to synchronize access to the <see cref="T:System.Collections.ICollection"/>.
+        /// </summary>
+        /// <value>An object to synchronize access to the collection.</value>
+        object ICollection.SyncRoot
+        {
+            get
+            {
+                return store.SyncRoot;
+            }
+        }
+
         // FIELDS
 
         ValidTagCollection allowedTags;
-        List<MatchedTag> store;
+        ArrayList store;
     }
 }

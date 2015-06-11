@@ -91,6 +91,7 @@ namespace newtelligence.DasBlog.Web.Core
         /// <returns><see langword="true" /> if the tagName is valid; otherwise, <see langword="false" />.</returns>
         public bool IsValidTag(string tagName)
         {
+            if (tags.ContainsKey(tagName) == false) return false;
             return tags[tagName] != null && ((ValidTag)tags[tagName]).IsAllowed;
         }
 
