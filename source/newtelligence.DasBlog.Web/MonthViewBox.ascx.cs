@@ -40,14 +40,15 @@
 
 namespace newtelligence.DasBlog.Web
 {
+    using newtelligence.DasBlog.Runtime;
+    using newtelligence.DasBlog.Web.Core;
     using System;
     using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
     using System.Text.RegularExpressions;
     using System.Web.UI;
     using System.Web.UI.WebControls;
-    using newtelligence.DasBlog.Runtime;
-    using newtelligence.DasBlog.Web.Core;
 
 	/// <summary>
 	/// A Calendar that is smart enough to know the entries that go along with it
@@ -103,20 +104,9 @@ namespace newtelligence.DasBlog.Web
 				daysWithEntries = requestPage.DataService.GetDaysWithEntries(new newtelligence.DasBlog.Util.UTCTimeZone());
 			}
 
-			//This is cheesy, but easy.  I really just need a SortedSet
-            HashSet<int> yearTable = new HashSet<int>();
-			List<int> yearList = new List<int>();
-
-			foreach (DateTime date in daysWithEntries) 
-			{
-					yearTable.Add(date.Year);
-					yearList.Add(date.Year);
-			}
-
-			yearList.Sort();
-			yearList.Reverse();
-	
-			foreach(int year in yearList)
+            var years = new SortedSet<int>();
+			foreach (DateTime date in daysWithEntries) years.Add(date.Year);
+			foreach(int year in years.Reverse<int>())
 			{
 				HyperLink h = new HyperLink();
 				h.NavigateUrl = GetUrlWithYear(year);
