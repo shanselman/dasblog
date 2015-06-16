@@ -116,7 +116,7 @@ namespace newtelligence.DasBlog.Web
 			yearList.Sort();
 			yearList.Reverse();
 	
-			foreach(int year in yearList)
+			foreach(int year in yearTable)
 			{
 				HyperLink h = new HyperLink();
 				h.NavigateUrl = GetUrlWithYear(year);
