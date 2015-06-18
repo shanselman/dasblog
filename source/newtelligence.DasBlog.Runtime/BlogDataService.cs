@@ -548,7 +548,7 @@ namespace newtelligence.DasBlog.Runtime
 
                                 // if we don't get the header
                                 // try and autodetect the auto pingback info
-                                if (pingbackService == null && pingbackService.Length == 0)
+                                if (pingbackService == null || pingbackService.Length == 0)
                                 {
                                     string[] split = pingbackRegex.Split(requestBody);
 
