@@ -22,13 +22,11 @@ namespace newtelligence.DasBlog.Web.TextEditors
 
         public override void Initialize()
         {
-            string tinyMCEPath = "\"//tinymce.cachefly.net/4.1/tinymce.min.js\"";
-
-            string insertMCEHandler = string.Format("<script language=\"javascript\" type=\"text/javascript\" src={0}></script>", tinyMCEPath);
+            string insertMCEHandler = string.Format("<script language=\"javascript\" type=\"text/javascript\" src=\"//tinymce.cachefly.net/4.1/tinymce.min.js\"></script><script language=\"javascript\" type=\"text/javascript\" src=\"tinymce/plugins/code/plugin.min.js\"></script>");
 
             if (this.control.Visible)
             {
-                insertMCEHandler += @"<script language=""javascript"" type=""text/javascript"">tinymce.init({selector:'.MCE'});</script>";
+                insertMCEHandler += @"<script language=""javascript"" type=""text/javascript"">tinymce.init({selector:'.MCE',plugins:'code'});</script>";
             }
 
             this.Control.Page.ClientScript.RegisterClientScriptBlock(this.GetType(),"insertMCEHandler", insertMCEHandler);
