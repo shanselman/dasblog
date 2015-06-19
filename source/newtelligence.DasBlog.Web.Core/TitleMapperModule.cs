@@ -109,7 +109,10 @@ namespace newtelligence.DasBlog.Web.Core
                 return;
             }
 
-            bool fileExists = File.Exists(app.Context.Server.MapPath(app.Context.Request.FilePath));
+            // need to detect the default url because that is also pointing default.aspx
+            bool fileExists = File.Exists(app.Context.Server.MapPath(app.Context.Request.FilePath)) || 
+                app.Context.Request.ApplicationPath.TrimEnd('/') == app.Context.Request.FilePath.TrimEnd('/');
+
             // TODO: there has to be a way to also see if the request is from an HttpHander since File.Exists won't work.
             //if (!requestUrl.EndsWith(".aspx", StringComparison.InvariantCultureIgnoreCase) ||
             //    fileExists)
