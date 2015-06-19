@@ -97,6 +97,7 @@ namespace newtelligence.DasBlog.Web
         bool enableCrossposts = true;
         bool enableCrossPostFooter = false;
         string crossPostFooter = null;
+        bool extensionlessUrls = false;
         bool enableTitlePermaLink = false;
         bool enableTitlePermaLinkUnique = false;
         bool enableTitlePermaLinkSpaces = false;
@@ -784,6 +785,13 @@ namespace newtelligence.DasBlog.Web
             get { return crossPostFooter; }
             set { crossPostFooter = value; }
         }
+
+        public bool ExtensionlessUrls
+        {
+            get { return extensionlessUrls; }
+            set { extensionlessUrls = value; }
+        }
+
 
         public bool EnableTitlePermaLink
         {

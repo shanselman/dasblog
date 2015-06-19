@@ -485,6 +485,12 @@ namespace newtelligence.DasBlog.Web.Core
             {
                 titlePermalink = LinkRewriter(siteConfig, RelativeToRoot(siteConfig, "PermaLink.aspx?guid=" + titledEntry.EntryId));
             }
+
+            if (siteConfig.ExtensionlessUrls == true)
+            {
+                titlePermalink = titlePermalink.Replace(".aspx", "");
+            }
+
             return titlePermalink;
         }
 
