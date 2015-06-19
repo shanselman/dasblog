@@ -104,9 +104,26 @@ namespace newtelligence.DasBlog.Web
 				daysWithEntries = requestPage.DataService.GetDaysWithEntries(new newtelligence.DasBlog.Util.UTCTimeZone());
 			}
 
+<<<<<<< HEAD
             var years = new SortedSet<int>();
 			foreach (DateTime date in daysWithEntries) years.Add(date.Year);
 			foreach(int year in years.Reverse<int>())
+=======
+			//This is cheesy, but easy.  I really just need a SortedSet
+            HashSet<int> yearTable = new HashSet<int>();
+			List<int> yearList = new List<int>();
+
+			foreach (DateTime date in daysWithEntries) 
+			{
+					yearTable.Add(date.Year);
+					yearList.Add(date.Year);
+			}
+
+			yearList.Sort();
+			yearList.Reverse();
+	
+			foreach(int year in yearList)
+>>>>>>> parent of 440426e... Resolve Month Page
 			{
 				HyperLink h = new HyperLink();
 				h.NavigateUrl = GetUrlWithYear(year);
