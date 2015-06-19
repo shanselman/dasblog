@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -108,12 +109,15 @@ namespace newtelligence.DasBlog.Web.Core
                 return;
             }
 
+            bool fileExists = File.Exists(app.Context.Server.MapPath(app.Context.Request.FilePath));
             // TODO: there has to be a way to also see if the request is from an HttpHander since File.Exists won't work.
-            if (!requestUrl.EndsWith(".aspx", StringComparison.InvariantCultureIgnoreCase) ||
-                File.Exists(app.Context.Server.MapPath(app.Context.Request.FilePath)))
-            {
-                return;
-            }
+            //if (!requestUrl.EndsWith(".aspx", StringComparison.InvariantCultureIgnoreCase) ||
+            //    fileExists)
+            //{
+            //    return;
+            //}
+
+            if (fileExists) return;
 
             string title = app.Context.Request.Url.Segments[app.Context.Request.Url.Segments.Length - 1];
 
@@ -125,6 +129,21 @@ namespace newtelligence.DasBlog.Web.Core
             {
                 return;
             }
+
+            //TODO: If a config option says ExtensionLess...
+            bool extensionlessPosts = true;
+            if (extensionlessPosts)
+            {
+                if (!fileExists && requestUrl.EndsWith(".aspx"))
+                {
+                    string newUrl = requestUrl.Replace(".aspx", "");
+                    app.Context.Response.RedirectPermanent(newUrl);
+                    return;
+                }
+            }
+
+
+
 
             title = title.Replace(".aspx", "");
             
