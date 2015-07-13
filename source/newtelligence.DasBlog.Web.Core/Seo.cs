@@ -102,29 +102,22 @@ namespace newtelligence.DasBlog.Web.Core
 
             // Meta Description
             string blogPostDescription;
-            string twitterImage;
-            string twitterVideo;
+            string postImage;
+            string postVideo;
 
-            if (string.IsNullOrEmpty(entry.Description) || entry.Description.Length < 20)
-            {
-                blogPostDescription = entry.Content;
-            }
-            else
-            {
-                blogPostDescription = entry.Description;
-            }
+            blogPostDescription = entry.Content;
 
             //This is dangerous stuff, don't freak out if it doesn't work.
             try
             {
-                twitterImage = FindFirstImage(blogPostDescription);
-                twitterVideo = FindFirstYouTubeVideo(blogPostDescription);
+                postImage = FindFirstImage(blogPostDescription);
+                postVideo = FindFirstYouTubeVideo(blogPostDescription);
             }
             catch(Exception ex)
             {
                 Trace.WriteLine("Exception looking for Images and Video: " + ex.ToString());
-                twitterImage = string.Empty;
-                twitterVideo = string.Empty;
+                postImage = string.Empty;
+                postVideo = string.Empty;
             }
             blogPostDescription = HttpUtility.HtmlDecode(blogPostDescription);
             blogPostDescription = blogPostDescription.RemoveLineBreaks();
@@ -155,13 +148,13 @@ namespace newtelligence.DasBlog.Web.Core
             metaTags += string.Format(MetaTwitterTitlePattern, entry.Title);
             metaTags += string.Format(MetaTwitterDescriptionPattern, blogPostDescription.CutLongString(120));
 
-            if (twitterImage.Length > 0)
+            if (postImage.Length > 0)
             {
-                metaTags += string.Format(MetaTwitterImagePattern, twitterImage);
+                metaTags += string.Format(MetaTwitterImagePattern, postImage);
             }
-            else if(twitterVideo.Length > 0)
+            else if(postVideo.Length > 0)
             {
-                metaTags += string.Format(MetaTwitterImagePattern, twitterVideo);
+                metaTags += string.Format(MetaTwitterImagePattern, postVideo);
             }
             else
             {
@@ -172,13 +165,13 @@ namespace newtelligence.DasBlog.Web.Core
             metaTags += string.Format(MetaFaceBookUrlPattern, SiteUtilities.GetPermaLinkUrl(entry));
             metaTags += string.Format(MetaFaceBookTitlePattern, entry.Title);
 
-            if (twitterImage.Length > 0)
+            if (postImage.Length > 0)
             {
-                metaTags += string.Format(MetaFaceBookImagePattern, twitterImage);
+                metaTags += string.Format(MetaFaceBookImagePattern, postImage);
             }
-            else if (twitterVideo.Length > 0)
+            else if (postVideo.Length > 0)
             {
-                metaTags += string.Format(MetaFaceBookImagePattern, twitterVideo);
+                metaTags += string.Format(MetaFaceBookImagePattern, postVideo);
             }
             else
             {
@@ -199,7 +192,7 @@ namespace newtelligence.DasBlog.Web.Core
             metaTags += string.Format(MetaSchemeDatePublished, entry.CreatedUtc.ToString("yyyy-MM-dd"));
             metaTags += string.Format(MetaSchemeDescription, blogPostDescription.CutLongString(240));
             metaTags += string.Format(MetaSchemeUrl, SiteUtilities.GetPermaLinkUrl(entry));
-            metaTags += string.Format(MetaSchemeImage, twitterImage);
+            metaTags += string.Format(MetaSchemeImage, postImage);
             metaTags += MetaSchemeCloseScript;
 
             return metaTags;
