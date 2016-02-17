@@ -15,7 +15,7 @@
 		<%editButton%>&nbsp;
 		<%disclaimerLink%>
 		&nbsp;|&nbsp;
-		<a onclick="CommentsReset('<%itemGuid%>','<%permalinkurl%>','', 'en')">Comments</a>
+		<a onclick="CommentsReset('<%itemGuid%>','<%permalinkurl%>','<%ItemTitleRaw%>', 'en')">Comments</a>
 		&nbsp;|&nbsp;
 		<%trackbackLink%>
 		<%relatedPostList%>
@@ -32,7 +32,7 @@
 			var mainpage = "<% DrawPostPagingPrevious() %>";
 			if(mainpage.length == 0)
 			{
-				CommentsReset('<%itemGuid%>','<%permalinkurl%>','', 'en');
+				CommentsReset('<%itemGuid%>','<%permalinkurl%>','<%ItemTitleRaw%>', 'en');
 			}
 		},
 		false);
