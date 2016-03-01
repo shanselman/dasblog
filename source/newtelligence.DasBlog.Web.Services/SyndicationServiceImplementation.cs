@@ -41,31 +41,25 @@ using System.Globalization;
 
 namespace newtelligence.DasBlog.Web.Services
 {
-	using System;
-	using System.Configuration;
-	using System.Collections;
-	using System.Collections.Specialized;
-	using System.ComponentModel;
-	using System.Data;
-	using System.Diagnostics;
-	using System.Web;
-	using System.Web.Services;
-	using System.Web.Services.Protocols;
-	using System.Web.Services.Description;
-	using System.IO;
-	using System.Xml;
-	using System.Xml.Serialization;
-	using newtelligence.DasBlog.Runtime;
-	using newtelligence.DasBlog.Web.Services.Rss20;
-	using newtelligence.DasBlog.Web.Services.Atom10;
-	using newtelligence.DasBlog.Web.Core;
-	using newtelligence.DasBlog.Util.Html;
+    using System;
+    using System.ComponentModel;
+    using System.Web;
+    using System.Web.Services;
+    using System.Web.Services.Protocols;
+    using System.Web.Services.Description;
+    using System.Xml;
+    using System.Xml.Serialization;
+    using newtelligence.DasBlog.Runtime;
+    using newtelligence.DasBlog.Web.Services.Rss20;
+    using newtelligence.DasBlog.Web.Services.Atom10;
+    using newtelligence.DasBlog.Web.Core;
+    using newtelligence.DasBlog.Util.Html;
     using System.Collections.Generic;
-
-	/// <summary>
-	/// Summary description for DasBlogBrowsing.
-	/// </summary>
-	[WebService(Namespace="urn:schemas-newtelligence-com:dasblog:syndication-services")]
+    using InstantArticle;
+    /// <summary>
+    /// Summary description for DasBlogBrowsing.
+    /// </summary>
+    [WebService(Namespace="urn:schemas-newtelligence-com:dasblog:syndication-services")]
 	public class SyndicationServiceImplementation : SyndicationServiceBase 
 	{
 		protected bool inASMX = false;
@@ -722,10 +716,10 @@ namespace newtelligence.DasBlog.Web.Services
 		{
 			return dataService.GetDayExtra(date);
 		}
-		#endregion
-		
-		#region Atom 1.0
-		[WebMethod]
+        #endregion
+
+        #region Atom 1.0
+        [WebMethod]
 		[SoapDocumentMethod(ParameterStyle=SoapParameterStyle.Wrapped,Use=SoapBindingUse.Literal)]
 		public AtomRoot GetAtom()
 		{
@@ -943,17 +937,170 @@ namespace newtelligence.DasBlog.Web.Services
 			}
 			return atomFeed;
 		}
-		
-		#endregion
-	
-		//OmarS: Why is this here? i see no good reason for this
-		/*
-		[WebMethod]
-		[SoapDocumentMethod(ParameterStyle=SoapParameterStyle.Wrapped,Use=SoapBindingUse.Literal)]
-		public void AddComment(Comment comment)
-		{
-			dataService.AddComment( comment );
-		}
-		*/
-	}
+
+        #endregion
+
+        #region Facebook Instant Articles
+        [WebMethod]
+        [SoapDocumentMethod(ParameterStyle = SoapParameterStyle.Wrapped, Use = SoapBindingUse.Literal)]
+        public string GetInstantArticleUrl()
+        {
+            return SiteUtilities.GetRssUrl(siteConfig);
+        }
+
+        [WebMethod]
+        [SoapDocumentMethod(ParameterStyle = SoapParameterStyle.Wrapped, Use = SoapBindingUse.Literal)]
+        [return: XmlAnyElement]
+        public IARoot GetInstantArticle()
+        {
+            int maxDays = siteConfig.RssDayCount;
+            int maxEntries = siteConfig.RssMainEntryCount;
+            return GetInstantArticleCount(maxDays, maxEntries);
+        }
+
+        private IARoot GetInstantArticleCount(int maxDays, int maxEntries)
+        {
+            EntryCollection entries = null;
+            //We only build the entries if blogcore doesn't exist and we'll need them later...
+            if (dataService.GetLastEntryUpdate() == DateTime.MinValue)
+            {
+                entries = BuildEntries(null, maxDays, maxEntries);
+            }
+
+            //Try to get out as soon as possible with as little CPU as possible
+            if (inASMX)
+            {
+                DateTime lastModified = SiteUtilities.GetLatestModifedEntryDateTime(dataService, entries);
+                if (SiteUtilities.GetStatusNotModified(lastModified))
+                    return null;
+            }
+
+            if (inASMX)
+            {
+                string referrer = Context.Request.UrlReferrer != null ? Context.Request.UrlReferrer.AbsoluteUri : "";
+                if (ReferralBlackList.IsBlockedReferrer(referrer))
+                {
+                    if (siteConfig.EnableReferralUrlBlackList404s)
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    loggingService.AddReferral(
+                        new LogDataItem(
+                        Context.Request.RawUrl,
+                        referrer,
+                        Context.Request.UserAgent,
+                        Context.Request.UserHostName));
+                }
+            }
+
+            //not-modified didn't work, do we have this in cache?
+            string CacheKey = string.Format("InstantArticle:{0}:{1}",maxDays,maxEntries);
+            IARoot documentRoot = cache[CacheKey] as IARoot;
+
+            if (documentRoot == null) //we'll have to build it...
+            {
+                //However, if we made it this far, the not-modified check didn't work, and we may not have entries...
+                if (entries == null)
+                {
+                    entries = BuildEntries(null, maxDays, maxEntries);
+                }
+
+                documentRoot = new IARoot();
+                documentRoot.Namespaces.Add("content", "http://purl.org/rss/1.0/modules/content/");
+
+                IAChannel ch = new IAChannel();
+
+                ch.Title = siteConfig.Title;
+                ch.Link = SiteUtilities.GetBaseUrl(siteConfig);
+
+                if (siteConfig.Description == null || siteConfig.Description.Trim().Length == 0)
+                {
+                    ch.Description = siteConfig.Subtitle;
+                }
+                else
+                {
+                    ch.Description = siteConfig.Description;
+                }
+
+                ch.PubDate = DateTime.UtcNow.ToString();
+                ch.LastBuildDate = DateTime.UtcNow.ToString(); 
+
+                if (siteConfig.RssLanguage != null && siteConfig.RssLanguage.Length > 0)
+                {
+                    ch.Language = siteConfig.RssLanguage;
+                }
+
+                //generator
+                ch.Docs = string.Empty;
+
+                documentRoot.Channels.Add(ch);
+
+                foreach (Entry entry in entries)
+                {
+                    if (entry.IsPublic == false || entry.Syndicated == false)
+                    {
+                        continue;
+                    }
+
+                    IAItem item = new IAItem();
+                    List<XmlElement> anyElements = new List<XmlElement>();
+                    XmlDocument xmlDoc = new XmlDocument();
+
+                    item.Title = entry.Title;
+                    item.PubDate = entry.CreatedUtc.ToString("R");
+
+                    if (ch.LastBuildDate == null || ch.LastBuildDate.Length == 0)
+                    {
+                        ch.LastBuildDate = item.PubDate;
+                    }
+
+                    item.Link = SiteUtilities.GetPermaLinkUrl(siteConfig, (ITitledEntry)entry);
+                    item.Guid = entry.EntryId;
+
+                    if (!siteConfig.AlwaysIncludeContentInRSS &&
+                        entry.Description != null &&
+                        entry.Description.Trim().Length > 0)
+                    {
+                        item.Description = PreprocessItemContent(entry.EntryId, entry.Description);
+                    }
+                    else
+                    {
+                        item.Description = ContentFormatter.FormatContentAsHTML(PreprocessItemContent(entry.EntryId, entry.Content));
+                    }
+
+                    XmlElement contentEncoded = xmlDoc.CreateElement("content", "encoded", "http://purl.org/rss/1.0/modules/content/");
+                    string encData = string.Format("<!doctype html>" +
+                        "<html lang=\"en\" prefix=\"op: http://media.facebook.com/op#\">" +
+                        "<head>" +
+                        "<meta charset=\"utf-8\">" +
+                        "<link rel=\"canonical\" href=\"{3}\">" +
+                        "<meta property=\"op:markup_version\" content=\"v1.0\">" +
+                        "</head>" +
+                        "<body><article>" +
+                        "<header>{0}</header>" +
+                        "{1}" +
+                        "<footer>{2}</footer>" +
+                        "</article></body></html>",
+                        entry.Title,
+                        ContentFormatter.FormatContentAsHTML(PreprocessItemContent(entry.EntryId, entry.Content)),
+                        string.Empty, item.Link);
+                    XmlCDataSection cdata = xmlDoc.CreateCDataSection(encData);
+                    contentEncoded.AppendChild(cdata);
+
+                    anyElements.Add(contentEncoded);
+
+                    item.anyElements = anyElements.ToArray();
+
+                    ch.Items.Add(item);
+                }
+                cache.Insert(CacheKey, documentRoot, DateTime.Now.AddMinutes(5));
+            }
+            return documentRoot;
+        }
+
+        #endregion
+    }
 }

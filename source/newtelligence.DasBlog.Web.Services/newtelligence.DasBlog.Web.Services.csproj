@@ -240,6 +240,7 @@
     <Compile Include="Rsd.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="InstantArticle.cs" />
     <Compile Include="Rss.cs">
       <SubType>Code</SubType>
     </Compile>
