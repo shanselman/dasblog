@@ -3774,7 +3774,6 @@ namespace newtelligence.DasBlog.Web.Core
             }
         }
 
-
         public virtual Control FeedFlare()
         {
             const string scriptTag = "<script src=\"http://feeds.feedburner.com/~s/{0}?i={1}\" type=\"text/javascript\"></script>";
@@ -3787,6 +3786,12 @@ namespace newtelligence.DasBlog.Web.Core
             }
             return null;
         }
+
+        public virtual Control PagePostCount()
+        {
+            return new LiteralControl(this.requestPage.WeblogEntries.Count.ToString());
+        }
+
     }
 
     /// <summary>

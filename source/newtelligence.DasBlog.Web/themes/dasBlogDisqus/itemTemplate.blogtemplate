@@ -29,8 +29,8 @@
 <script type="text/javascript">
 	window.addEventListener('load', 
 		function() { 
-			var mainpage = "<% DrawPostPagingPrevious() %>";
-			if(mainpage.length == 0)
+			var postCount = <% PagePostCount() %>;
+			if(postCount == 1)
 			{
 				CommentsReset('<%itemGuid%>','<%permalinkurl%>','<%ItemTitleRaw%>', 'en');
 			}
