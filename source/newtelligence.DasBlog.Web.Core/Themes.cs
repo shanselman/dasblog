@@ -274,7 +274,27 @@ namespace newtelligence.DasBlog.Web.Core
             return templateReader;
 		}
 
-		public TextReader OpenDesktopTemplate(string basePath, string categoryName)
+        public TextReader OpenHomeAMPTemplate(string basePath, string categoryName)
+        {
+            TextReader templateReader = OpenTemplate("homeAMPTemplate", basePath, categoryName);
+            if (templateReader == null)
+            {
+                templateReader = OpenEmptyTemplate();
+            }
+            return templateReader;
+        }
+
+        public TextReader OpenItemAMPTemplate(string basePath, string categoryName)
+        {
+            TextReader templateReader = OpenTemplate("itemAMPTemplate", basePath, categoryName);
+            if (templateReader == null)
+            {
+                templateReader = OpenEmptyTemplate();
+            }
+            return templateReader;
+        }
+
+        public TextReader OpenDesktopTemplate(string basePath, string categoryName)
 		{
 			TextReader templateReader = OpenTemplate("desktopWebsiteTemplate", basePath, categoryName );
             if ( templateReader == null )
@@ -303,8 +323,18 @@ namespace newtelligence.DasBlog.Web.Core
             }
             return templateReader;
 		}
-        
-	}
+
+        public TextReader OpenDayAMPTemplate(string basePath, string categoryName)
+        {
+            TextReader templateReader = OpenTemplate("dayAMPTemplate", basePath, categoryName);
+            if (templateReader == null)
+            {
+                templateReader = OpenEmptyTemplate();
+            }
+            return templateReader;
+        }
+
+    }
 
 	/// <summary>
 	/// A dictionary with keys of type string and values of type Theme
