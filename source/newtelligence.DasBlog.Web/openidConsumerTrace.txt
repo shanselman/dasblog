@@ -137,3 +137,5 @@ aspx.page: Begin SaveStateComplete
 aspx.page: End SaveStateComplete
 aspx.page: Begin Render
 aspx.page: End Render
+foo
+foo
