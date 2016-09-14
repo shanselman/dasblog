@@ -28,10 +28,10 @@ namespace newtelligence.DasBlog.Web.Core
         private const string MetaFaceBookAdminsPattern = "<meta name=\"fb:admins\" content=\"{0}\" />\r\n";
         private const string MetaFaceBookAppIDPattern = "<meta name=\"fb:app_id\" content=\"{0}\" />\r\n";
 
-
         private const string MetaSchemeOpenScript = "<script type=\"application/ld+json\"> \r\n{\r\n";
         private const string MetaSchemeContext = "\"@context\": \"http://schema.org\",";
         private const string MetaSchemeType = "\"@type\": \"BlogPosting\",";
+        private const string MetaSchemeNewsType = "\"@type\": \"NewsArticle\",";
         private const string MetaSchemeHeadline = "\"headline\": \"{0}\",";
         private const string MetaSchemeDatePublished = "\"datePublished\": \"{0}\",";
         private const string MetaSchemeDescription = "\"description\": \"{0}\",";
@@ -39,7 +39,7 @@ namespace newtelligence.DasBlog.Web.Core
         private const string MetaSchemeImage = "\"image\": \"{0}\"";
         private const string MetaSchemeCloseScript = "}\r\n</script>\r\n";
 
-
+        private const string MetaAMPLinkPattern = "<link rel=\"amphtml\" href=\"{0}?amppage=true\" />\r\n";
 
         public static string CreateSeoMetaInformation(EntryCollection weblogEntries, IBlogDataService dataService)
         {
@@ -95,6 +95,41 @@ namespace newtelligence.DasBlog.Web.Core
             return metaTags;
         }
 
+        public static string CreateAMPSeoMetaInformation(EntryCollection weblogEntries, IBlogDataService dataService)
+        {
+            string metaTags = "\r\n";
+            string blogPostDescription;
+            string postImage = string.Empty;
+
+            if (weblogEntries.Count >= 1)
+            {
+                Entry entry = weblogEntries[0];
+                metaTags += string.Format(CanonicalLinkPattern, SiteUtilities.GetBaseUrl());
+
+                blogPostDescription = entry.Content; 
+
+                try
+                {
+                    postImage = FindFirstImage(blogPostDescription);
+                }
+                catch (Exception ex)
+                {
+                    Trace.WriteLine("Exception looking for Images and Video: " + ex.ToString());
+                    postImage = string.Empty;
+                }
+
+                metaTags += MetaSchemeOpenScript;
+                metaTags += MetaSchemeContext;
+                metaTags += MetaSchemeNewsType;
+                metaTags += string.Format(MetaSchemeHeadline, entry.Title);
+                metaTags += string.Format(MetaSchemeDatePublished, entry.CreatedUtc.ToString("yyyy-MM-dd"));
+                metaTags += string.Format(MetaSchemeImage, postImage);
+                metaTags += MetaSchemeCloseScript;
+            }
+
+            return metaTags;
+        }
+
         private static string GetMetaTags(string metaTags, Entry entry)
         {
             // Canonical Tag
@@ -119,13 +154,7 @@ namespace newtelligence.DasBlog.Web.Core
                 postImage = string.Empty;
                 postVideo = string.Empty;
             }
-            blogPostDescription = HttpUtility.HtmlDecode(blogPostDescription);
-            blogPostDescription = blogPostDescription.RemoveLineBreaks();
-            blogPostDescription = blogPostDescription.StripHtml();
-            blogPostDescription = blogPostDescription.RemoveDoubleSpaceCharacters();
-            blogPostDescription = blogPostDescription.Trim();
-            blogPostDescription = blogPostDescription.CutLongString(160);
-            blogPostDescription = blogPostDescription.RemoveQuotationMarks();
+            blogPostDescription = StipHTMLFromText(blogPostDescription);
 
             var smt = new SeoMetaTags();
             smt = smt.GetMetaTags();
@@ -147,6 +176,12 @@ namespace newtelligence.DasBlog.Web.Core
             metaTags += string.Format(MetaTwitterCreatorPattern, smt.TwitterCreator);
             metaTags += string.Format(MetaTwitterTitlePattern, entry.Title);
             metaTags += string.Format(MetaTwitterDescriptionPattern, blogPostDescription.CutLongString(120));
+
+            SiteConfig siteConfig = SiteConfig.GetSiteConfig();
+            if (siteConfig.AMPPagesEnabled)
+            {
+                metaTags += string.Format(MetaAMPLinkPattern, SiteUtilities.GetPermaLinkUrl(entry));
+            }
 
             if (postImage.Length > 0)
             {
@@ -182,7 +217,6 @@ namespace newtelligence.DasBlog.Web.Core
             metaTags += MetaFaceBookTypePattern;
             metaTags += string.Format(MetaFaceBookAdminsPattern, smt.FaceBookAdmins);
             metaTags += string.Format(MetaFaceBookAppIDPattern, smt.FaceBookAppID);
-
 
             //Scheme.org meta data integration
             metaTags += MetaSchemeOpenScript;
@@ -236,6 +270,19 @@ namespace newtelligence.DasBlog.Web.Core
             }
 
             return firstVideo.Trim();
+        }
+
+        private static string StipHTMLFromText(string text)
+        {
+            text = HttpUtility.HtmlDecode(text);
+            text = text.RemoveLineBreaks();
+            text = text.StripHtml();
+            text = text.RemoveDoubleSpaceCharacters();
+            text = text.Trim();
+            text = text.CutLongString(160);
+            text = text.RemoveQuotationMarks();
+
+            return text;
         }
     }
 }

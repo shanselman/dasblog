@@ -313,71 +313,75 @@ namespace newtelligence.DasBlog.Web.Core
                 CategoryName = Request.QueryString["category"];
 				TitleOverride = CategoryName;
             }
-            if ( Request.QueryString["date"] != null )
+            if (Request.QueryString["date"] != null)
             {
                 try
                 {
-                    DayUtc = DateTime.ParseExact(Request.QueryString["date"],"yyyy-MM-dd",System.Globalization.CultureInfo.InvariantCulture);
-					TitleOverride = DayUtc.ToLongDateString();
-				}
+                    DayUtc = DateTime.ParseExact(Request.QueryString["date"], "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+                    TitleOverride = DayUtc.ToLongDateString();
+                    if (Request.QueryString["amppage"] != null)
+                    {
+                        AMPPage = "amppage";
+                    }
+                }
                 catch
                 {
                 }
             }
-			else if ( Request.QueryString["month"] != null ) 
-			{
-				try 
-				{
-					Month = DateTime.ParseExact(Request.QueryString["month"],"yyyy-MM", System.Globalization.CultureInfo.InvariantCulture);
-					TitleOverride = Month.ToString("MMMM, yyyy");
-				}
-				catch 
-				{
-				}
-			}
-			else if (Request.QueryString["page"] != null)
-			{
-				try
-				{
-					PageIndex = Int32.Parse(Request.QueryString["page"], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
-				}
-				catch
-				{
-				}
-			}
+            else if (Request.QueryString["month"] != null)
+            {
+                try
+                {
+                    Month = DateTime.ParseExact(Request.QueryString["month"], "yyyy-MM", System.Globalization.CultureInfo.InvariantCulture);
+                    TitleOverride = Month.ToString("MMMM, yyyy");
+                }
+                catch
+                {
+                }
+            }
+            else if (Request.QueryString["page"] != null)
+            {
+                try
+                {
+                    PageIndex = Int32.Parse(Request.QueryString["page"], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture);
+                }
+                catch
+                {
+                }
+            }
 
-			// TSC: we are looking for an submit from the calendar control, but we will only
-			// do something if the default page was submited
-			else if ( Request.Path.ToLower().IndexOf("default") != -1 &&
-				Request.Params["__EVENTTARGET"] != null && 
-				Request.Params["__EVENTTARGET"] != string.Empty && 
-				Request.Params["__EVENTTARGET"].IndexOf(__weblogCalender) != -1 && 
-				Request.Params["__EVENTARGUMENT"] != null && 
-				Request.Params["__EVENTARGUMENT"] != string.Empty )
-			{
-				string _mDate = Request.Params["__EVENTARGUMENT"].Replace("V","");
-				// the initial time for the calendar control counting
-				DateTime d1 = new System.DateTime(2000,01,01,0,0,0,0);
-				// build an time span to the end of month (mostly)
-				System.TimeSpan duration = new System.TimeSpan(Convert.ToInt32(_mDate)+30, 0, 0, 0);
-				d1 = d1.Add(duration);
+            // TSC: we are looking for an submit from the calendar control, but we will only
+            // do something if the default page was submited
+            else if (Request.Path.ToLower().IndexOf("default") != -1 &&
+                Request.Params["__EVENTTARGET"] != null &&
+                Request.Params["__EVENTTARGET"] != string.Empty &&
+                Request.Params["__EVENTTARGET"].IndexOf(__weblogCalender) != -1 &&
+                Request.Params["__EVENTARGUMENT"] != null &&
+                Request.Params["__EVENTARGUMENT"] != string.Empty)
+            {
+                string _mDate = Request.Params["__EVENTARGUMENT"].Replace("V", "");
+                // the initial time for the calendar control counting
+                DateTime d1 = new System.DateTime(2000, 01, 01, 0, 0, 0, 0);
+                // build an time span to the end of month (mostly)
+                System.TimeSpan duration = new System.TimeSpan(Convert.ToInt32(_mDate) + 30, 0, 0, 0);
+                d1 = d1.Add(duration);
 
-				_mDate=new StringBuilder(d1.Year.ToString())
-					.Append("-")
-					.Append(d1.Month<10?"0"+d1.Month.ToString():d1.Month.ToString())
-					.Append("-")
-					.Append(d1.Day<10?"0"+d1.Day.ToString():d1.Day.ToString()).ToString();
+                _mDate = new StringBuilder(d1.Year.ToString())
+                    .Append("-")
+                    .Append(d1.Month < 10 ? "0" + d1.Month.ToString() : d1.Month.ToString())
+                    .Append("-")
+                    .Append(d1.Day < 10 ? "0" + d1.Day.ToString() : d1.Day.ToString()).ToString();
 
-				try
-				{
-					DayUtc = DateTime.ParseExact(_mDate,"yyyy-MM-dd",System.Globalization.CultureInfo.InvariantCulture);
-					TitleOverride = DayUtc.ToLongDateString();
-				}
-				catch
-				{
-					// supress
-				}
-			}
+                try
+                {
+                    DayUtc = DateTime.ParseExact(_mDate, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+                    TitleOverride = DayUtc.ToLongDateString();
+                }
+                catch
+                {
+                    // supress
+                }
+            }
 
 			if ( Request.QueryString["title"] != null )
 			{
@@ -644,11 +648,32 @@ namespace newtelligence.DasBlog.Web.Core
             return templateString;
         }
 
+        public virtual string GetHomeAMPTemplate(string path)
+        {
+            string templateString = "";
+            using (TextReader sr = BlogTheme.OpenHomeAMPTemplate(path, CategoryName))
+            {
+                templateString = sr.ReadToEnd();
+            }
+            return templateString;
+        }
+
         public virtual string GetDayTemplate()
         {
             string templateString;
             string path = Path.Combine(Path.GetPathRoot(Request.PhysicalPath),Path.GetDirectoryName(Request.PhysicalPath));
             using ( TextReader sr = BlogTheme.OpenDayTemplate(path, CategoryName ) )
+            {
+                templateString = sr.ReadToEnd();
+            }
+            return templateString;
+        }
+
+        public virtual string GetDayAMPTemplate()
+        {
+            string templateString;
+            string path = Path.Combine(Path.GetPathRoot(Request.PhysicalPath), Path.GetDirectoryName(Request.PhysicalPath));
+            using (TextReader sr = BlogTheme.OpenDayAMPTemplate(path, CategoryName))
             {
                 templateString = sr.ReadToEnd();
             }
@@ -666,7 +691,18 @@ namespace newtelligence.DasBlog.Web.Core
             return templateString;
         }
 
-		private static readonly Regex hrefRegEx = new Regex("href=\"themes", RegexOptions.IgnoreCase|RegexOptions.Compiled);
+        public virtual string GetItemAMPTemplate()
+        {
+            string templateString;
+            string path = Path.Combine(Path.GetPathRoot(Request.PhysicalPath), Path.GetDirectoryName(Request.PhysicalPath));
+            using (TextReader sr = BlogTheme.OpenItemAMPTemplate(path, CategoryName))
+            {
+                templateString = sr.ReadToEnd();
+            }
+            return templateString;
+        }
+
+        private static readonly Regex hrefRegEx = new Regex("href=\"themes", RegexOptions.IgnoreCase|RegexOptions.Compiled);
 
         
         /// <summary>
@@ -758,6 +794,73 @@ namespace newtelligence.DasBlog.Web.Core
             }
 			
         }
+
+        public void ProcesAMPTemplate()
+        {
+            TemplateProcessor templateProcessor = new TemplateProcessor();
+            string path = Request.PhysicalApplicationPath;
+            string templateString = GetHomeAMPTemplate(path);
+
+            Match match = findBodyTag.Match(templateString);
+            if (match.Success)
+            {
+                int indexBody = templateString.IndexOf("</body>");
+                if (indexBody == -1)
+                {
+                    indexBody = templateString.IndexOf("</BODY>");
+                }
+
+                string headerTemplate = templateString.Substring(0, match.Index + match.Length);
+
+                int indexHead = headerTemplate.IndexOf("</head>");
+                if (indexHead == -1)
+                {
+                    indexHead = headerTemplate.IndexOf("</HEAD>");
+                }
+
+                headerTemplate = headerTemplate.Insert(indexHead, Seo.CreateAMPSeoMetaInformation(this.WeblogEntries, this.dataService));
+
+                // therefore it must close with a closing angle bracket, but it's better to check 
+                if (headerTemplate[headerTemplate.Length - 1] == '>')
+                {
+                    // if that's so, we want to inject the reading order designator if we're right-to-left
+                    // or it's explicitly specified
+                    string pageReadingDirection = coreStringTables.GetString("page_reading_direction");
+                    if (pageReadingDirection != null && pageReadingDirection.Length > 0)
+                    {
+                        if (pageReadingDirection == "RTL") this.readingDirection = TextDirection.RightToLeft;
+                        headerTemplate = headerTemplate.Substring(0, headerTemplate.Length - 1) + " dir=\"" + pageReadingDirection + "\">";
+                    }
+                }
+
+                string bodyTemplate, footerTemplate;
+                if (indexBody != -1)
+                {
+                    bodyTemplate = templateString.Substring(match.Index + match.Length, indexBody - (match.Index + match.Length));
+                    footerTemplate = templateString.Substring(indexBody);
+                }
+                else
+                {
+                    bodyTemplate = templateString.Substring(match.Index + match.Length);
+                    footerTemplate = "";
+                }
+
+                templateProcessor.ProcessTemplate(this, headerTemplate, ContentPlaceHolder, macros);
+
+                templateProcessor.ProcessTemplate(this, bodyTemplate, ContentPlaceHolder, macros);
+                // and finally the footer
+                if (footerTemplate.Length > 0)
+                {
+                    templateProcessor.ProcessTemplate(this, footerTemplate, ContentPlaceHolder, macros);
+                }
+            }
+            else
+            {
+                // if the page is just an unrecognizable mess of tags, process in one shot.
+                templateProcessor.ProcessTemplate(this, templateString, ContentPlaceHolder, macros);
+            }
+        }
+
         /// <summary>
         /// This method is used by controls to insert xhtml tags into the page head tag.
         /// </summary>
@@ -794,7 +897,14 @@ namespace newtelligence.DasBlog.Web.Core
         public virtual void ProcessDayTemplate( DateTime day, Control ContentPlaceHolder )
         {
             TemplateProcessor templateProcessor = new TemplateProcessor();
-            templateProcessor.ProcessTemplate( this, GetDayTemplate(), ContentPlaceHolder, new DayMacros( this, day ) );
+            if (SiteConfig.AMPPagesEnabled && !string.IsNullOrEmpty(AMPPage))
+            {
+                templateProcessor.ProcessTemplate(this, GetDayAMPTemplate(), ContentPlaceHolder, new DayMacros(this, day));
+            }
+            else
+            {
+                templateProcessor.ProcessTemplate(this, GetDayTemplate(), ContentPlaceHolder, new DayMacros(this, day));
+            }
         }
 
         /// <summary>
@@ -805,9 +915,19 @@ namespace newtelligence.DasBlog.Web.Core
         public virtual void ProcessItemTemplate( newtelligence.DasBlog.Runtime.Entry item, Control ContentPlaceHolder )
         {
 			TemplateProcessor templateProcessor = new TemplateProcessor();
-			// the tenplate string is prefixed with an invisible bookmark anchor tag that can be used
-			// for cross-references on the same page. All bookmarks take the form "a"+entryId
-			string templateString = String.Format("<a name=\"a{0}\"></a>{1}", item.EntryId, GetItemTemplate());
+            // the tenplate string is prefixed with an invisible bookmark anchor tag that can be used
+            // for cross-references on the same page. All bookmarks take the form "a"+entryId
+
+            // Check if this is a regular template or an AMP template...
+            string templateString = String.Empty;
+            if (SiteConfig.AMPPagesEnabled && !string.IsNullOrEmpty(AMPPage))
+            {
+                templateString = String.Format("<a name=\"a{0}\"></a>{1}", item.EntryId, GetItemAMPTemplate());
+            }
+            else
+            {
+                templateString = String.Format("<a name=\"a{0}\"></a>{1}", item.EntryId, GetItemTemplate());
+            }
 			templateProcessor.ProcessTemplate( this, item, templateString, ContentPlaceHolder, new ItemMacros( this, item ) );
         }
 
@@ -1214,7 +1334,14 @@ namespace newtelligence.DasBlog.Web.Core
 				return;
 			}
 
-			ProcessTemplate();
+            if(SiteConfig.AMPPagesEnabled && !string.IsNullOrEmpty(AMPPage))
+            {
+                ProcesAMPTemplate();
+            }
+            else
+            {
+                ProcessTemplate();
+            }
 
 			// The X-pingback header that is injected into every page serve tells 
 			// pingback clients where to find the endpoint for pingback.
@@ -1222,10 +1349,6 @@ namespace newtelligence.DasBlog.Web.Core
 			{
 				Response.AppendHeader("X-Pingback",new Uri(new Uri(siteConfig.Root),"pingback.aspx").ToString());
 			}
-
-         //Add the XRDS header for OpenID2.0
-         //Response.AppendHeader("X-XRDS-Location",new Uri(Request.Url, Response.ApplyAppPathModifier("~/xrds.aspx")).AbsoluteUri);
-
 
 			// Add JavaScript and CS for highlighting search words from both our search enginge and Yahoo/Google
 			if (siteConfig.EnableSearchHighlight)
@@ -1555,6 +1678,11 @@ namespace newtelligence.DasBlog.Web.Core
             {
                 weblogEntryId = value;
             }
+        }
+
+        public string AMPPage
+        {
+            get; set;
         }
 
         /// <summary>

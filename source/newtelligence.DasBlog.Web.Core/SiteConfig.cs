@@ -110,6 +110,7 @@ namespace newtelligence.DasBlog.Web
         bool enableAutoSave = false;
         private string titlePermalinkSpaceReplacement = TitleMapperModule.DefaultTitlePermalinkSpaceReplacement;
         bool enableCoComment = true;
+        bool enableAMPPages = false;
 
         //paulb changed to comments
         bool commentsRequireApproval;
@@ -1259,6 +1260,12 @@ namespace newtelligence.DasBlog.Web
         {
             get { return this.titlePermalinkSpaceReplacement; }
             set { this.titlePermalinkSpaceReplacement = value; }
+        }
+
+        public bool AMPPagesEnabled
+        {
+            get { return enableAMPPages; }
+            set { this.enableAMPPages = value; }
         }
 
         /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/

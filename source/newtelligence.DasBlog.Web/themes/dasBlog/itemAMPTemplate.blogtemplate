@@ -1,0 +1,10 @@
+<div class="itemBoxStyle">
+	AMP Body....
+	<div class="itemTitleStyle">
+		<%ItemTitle%>
+	</div>
+	<div class="itemBodyStyle">
+		<%ItemBody%>
+	</div>
+	AMP Body....
+</div>
