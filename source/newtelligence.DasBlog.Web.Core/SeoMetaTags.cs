@@ -22,6 +22,18 @@ namespace newtelligence.DasBlog.Web.Core
 
         public SeoMetaTags GetMetaTags()
         {
+            var cache = CacheFactory.GetCache();                   
+            var seoMetaTags = cache["seoMetaTags"] as SeoMetaTags;            
+            if (seoMetaTags == null)
+            {
+                seoMetaTags = GetMetaTagsFromConfig();
+                cache.Insert("seoMetaTags", seoMetaTags, new System.Web.Caching.CacheDependency(MetaConfigFile));                
+            }
+            return seoMetaTags;
+        }
+        
+        private SeoMetaTags GetMetaTagsFromConfig()
+        {
             if (!File.Exists(MetaConfigFile))
             {
                 return null;

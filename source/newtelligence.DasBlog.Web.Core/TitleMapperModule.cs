@@ -189,8 +189,12 @@ namespace newtelligence.DasBlog.Web.Core
                 requestParams = String.Format("{0}&{1}", requestParams, app.Context.Request.Url.Query.Substring(1));
             }
 
+
             SiteConfig config = SiteConfig.GetSiteConfig();
-            if (config.EnableComments && config.ShowCommentsWhenViewingEntry)
+
+            //and NOT doing amp...no comments when AMP is active...
+            if (config.EnableComments && config.ShowCommentsWhenViewingEntry
+                && String.IsNullOrWhiteSpace(app.Context.Request.QueryString["amppage"]))
             {
                 requestUrl = String.Format("~/CommentView.aspx?{0}", requestParams);
             }

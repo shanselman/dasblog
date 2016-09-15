@@ -29,13 +29,14 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\</OutputPath>
@@ -60,6 +61,7 @@
     <DebugType>full</DebugType>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\</OutputPath>
@@ -84,6 +86,7 @@
     <DebugType>none</DebugType>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AylarSolutions.Highlight">
@@ -121,9 +124,7 @@
     <Reference Include="System.Drawing">
       <Name>System.Drawing</Name>
     </Reference>
-    <Reference Include="System.Web">
-      <Name>System.Web</Name>
-    </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -627,6 +628,7 @@
     <Content Include="themes\Voidclass2\style.css" />
     <Content Include="TimeLine.aspx" />
     <Content Include="TimeLineControl.ascx" />
+    <Content Include="tinymce\plugins\code\plugin.min.js" />
     <Content Include="UserClickThroughs.aspx" />
     <Content Include="UserClickThroughsBox.ascx" />
     <Content Include="UserView.aspx" />
@@ -1043,9 +1045,7 @@
     <Compile Include="SingleCommentView.ascx.designer.cs">
       <DependentUpon>SingleCommentView.ascx</DependentUpon>
     </Compile>
-    <Compile Include="StatisticsListBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+    <Compile Include="StatisticsListBase.cs" />
     <Compile Include="SyndicationService.asmx.cs">
       <DependentUpon>SyndicationService.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -1452,6 +1452,9 @@
     <None Include="themes\calmBlue\itemTemplate.blogtemplate" />
     <None Include="themes\calmBlue\theme.manifest" />
     <None Include="themes\candidBlue\theme.manifest" />
+    <Content Include="themes\amp\dayTemplate.blogtemplate" />
+    <Content Include="themes\amp\homeTemplate.blogtemplate" />
+    <Content Include="themes\amp\itemTemplate.blogtemplate" />
     <None Include="themes\dasBlog\theme.manifest" />
     <None Include="themes\discreetBlogBlue\theme.manifest" />
     <None Include="themes\Elegante\admin\homeTemplate.blogtemplate" />
@@ -1473,7 +1476,7 @@
     <None Include="themes\mobile\dayTemplate.blogtemplate" />
     <None Include="themes\mobile\homeTemplate.blogtemplate" />
     <None Include="themes\mobile\itemTemplate.blogtemplate" />
-    <None Include="themes\mobile\theme.manifest" />
+    <None Include="themes\amp\theme.manifest" />
     <None Include="themes\Mono\dayTemplate.blogtemplate" />
     <None Include="themes\Mono\homeTemplate.blogtemplate" />
     <None Include="themes\Mono\itemTemplate.blogtemplate" />
