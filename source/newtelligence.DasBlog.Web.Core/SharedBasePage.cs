@@ -649,16 +649,6 @@ namespace newtelligence.DasBlog.Web.Core
             return templateString;
         }
 
-        public virtual string GetHomeAMPTemplate(string path)
-        {
-            string templateString = "";
-            using (TextReader sr = BlogTheme.OpenHomeAMPTemplate(path, CategoryName))
-            {
-                templateString = sr.ReadToEnd();
-            }
-            return templateString;
-        }
-
         public virtual string GetDayTemplate()
         {
             string templateString;
@@ -670,33 +660,11 @@ namespace newtelligence.DasBlog.Web.Core
             return templateString;
         }
 
-        public virtual string GetDayAMPTemplate()
-        {
-            string templateString;
-            string path = Path.Combine(Path.GetPathRoot(Request.PhysicalPath), Path.GetDirectoryName(Request.PhysicalPath));
-            using (TextReader sr = BlogTheme.OpenDayAMPTemplate(path, CategoryName))
-            {
-                templateString = sr.ReadToEnd();
-            }
-            return templateString;
-        }
-
         public virtual string GetItemTemplate()
         {
             string templateString;
             string path = Path.Combine(Path.GetPathRoot(Request.PhysicalPath),Path.GetDirectoryName(Request.PhysicalPath));
             using ( TextReader sr = BlogTheme.OpenItemTemplate(path, CategoryName ) )
-            {
-                templateString = sr.ReadToEnd();
-            }
-            return templateString;
-        }
-
-        public virtual string GetItemAMPTemplate()
-        {
-            string templateString;
-            string path = Path.Combine(Path.GetPathRoot(Request.PhysicalPath), Path.GetDirectoryName(Request.PhysicalPath));
-            using (TextReader sr = BlogTheme.OpenItemAMPTemplate(path, CategoryName))
             {
                 templateString = sr.ReadToEnd();
             }
@@ -796,71 +764,71 @@ namespace newtelligence.DasBlog.Web.Core
 			
         }
 
-        public void ProcesAMPTemplate()
-        {
-            TemplateProcessor templateProcessor = new TemplateProcessor();
-            string path = Request.PhysicalApplicationPath;
-            string templateString = GetHomeAMPTemplate(path);
+        //public void ProcesAMPTemplate()
+        //{
+        //    TemplateProcessor templateProcessor = new TemplateProcessor();
+        //    string path = Request.PhysicalApplicationPath;
+        //    string templateString = GetHomeAMPTemplate(path);
 
-            Match match = findBodyTag.Match(templateString);
-            if (match.Success)
-            {
-                int indexBody = templateString.IndexOf("</body>");
-                if (indexBody == -1)
-                {
-                    indexBody = templateString.IndexOf("</BODY>");
-                }
+        //    Match match = findBodyTag.Match(templateString);
+        //    if (match.Success)
+        //    {
+        //        int indexBody = templateString.IndexOf("</body>");
+        //        if (indexBody == -1)
+        //        {
+        //            indexBody = templateString.IndexOf("</BODY>");
+        //        }
 
-                string headerTemplate = templateString.Substring(0, match.Index + match.Length);
+        //        string headerTemplate = templateString.Substring(0, match.Index + match.Length);
 
-                int indexHead = headerTemplate.IndexOf("</head>");
-                if (indexHead == -1)
-                {
-                    indexHead = headerTemplate.IndexOf("</HEAD>");
-                }
+        //        int indexHead = headerTemplate.IndexOf("</head>");
+        //        if (indexHead == -1)
+        //        {
+        //            indexHead = headerTemplate.IndexOf("</HEAD>");
+        //        }
 
-                headerTemplate = headerTemplate.Insert(indexHead, Seo.CreateAMPSeoMetaInformation(this.WeblogEntries, this.dataService));
+        //        headerTemplate = headerTemplate.Insert(indexHead, Seo.CreateAMPSeoMetaInformation(this.WeblogEntries, this.dataService));
 
-                // therefore it must close with a closing angle bracket, but it's better to check 
-                if (headerTemplate[headerTemplate.Length - 1] == '>')
-                {
-                    // if that's so, we want to inject the reading order designator if we're right-to-left
-                    // or it's explicitly specified
-                    string pageReadingDirection = coreStringTables.GetString("page_reading_direction");
-                    if (pageReadingDirection != null && pageReadingDirection.Length > 0)
-                    {
-                        if (pageReadingDirection == "RTL") this.readingDirection = TextDirection.RightToLeft;
-                        headerTemplate = headerTemplate.Substring(0, headerTemplate.Length - 1) + " dir=\"" + pageReadingDirection + "\">";
-                    }
-                }
+        //        // therefore it must close with a closing angle bracket, but it's better to check 
+        //        if (headerTemplate[headerTemplate.Length - 1] == '>')
+        //        {
+        //            // if that's so, we want to inject the reading order designator if we're right-to-left
+        //            // or it's explicitly specified
+        //            string pageReadingDirection = coreStringTables.GetString("page_reading_direction");
+        //            if (pageReadingDirection != null && pageReadingDirection.Length > 0)
+        //            {
+        //                if (pageReadingDirection == "RTL") this.readingDirection = TextDirection.RightToLeft;
+        //                headerTemplate = headerTemplate.Substring(0, headerTemplate.Length - 1) + " dir=\"" + pageReadingDirection + "\">";
+        //            }
+        //        }
 
-                string bodyTemplate, footerTemplate;
-                if (indexBody != -1)
-                {
-                    bodyTemplate = templateString.Substring(match.Index + match.Length, indexBody - (match.Index + match.Length));
-                    footerTemplate = templateString.Substring(indexBody);
-                }
-                else
-                {
-                    bodyTemplate = templateString.Substring(match.Index + match.Length);
-                    footerTemplate = "";
-                }
+        //        string bodyTemplate, footerTemplate;
+        //        if (indexBody != -1)
+        //        {
+        //            bodyTemplate = templateString.Substring(match.Index + match.Length, indexBody - (match.Index + match.Length));
+        //            footerTemplate = templateString.Substring(indexBody);
+        //        }
+        //        else
+        //        {
+        //            bodyTemplate = templateString.Substring(match.Index + match.Length);
+        //            footerTemplate = "";
+        //        }
 
-                templateProcessor.ProcessTemplate(this, headerTemplate, ContentPlaceHolder, macros);
+        //        templateProcessor.ProcessTemplate(this, headerTemplate, ContentPlaceHolder, macros);
 
-                templateProcessor.ProcessTemplate(this, bodyTemplate, ContentPlaceHolder, macros);
-                // and finally the footer
-                if (footerTemplate.Length > 0)
-                {
-                    templateProcessor.ProcessTemplate(this, footerTemplate, ContentPlaceHolder, macros);
-                }
-            }
-            else
-            {
-                // if the page is just an unrecognizable mess of tags, process in one shot.
-                templateProcessor.ProcessTemplate(this, templateString, ContentPlaceHolder, macros);
-            }
-        }
+        //        templateProcessor.ProcessTemplate(this, bodyTemplate, ContentPlaceHolder, macros);
+        //        // and finally the footer
+        //        if (footerTemplate.Length > 0)
+        //        {
+        //            templateProcessor.ProcessTemplate(this, footerTemplate, ContentPlaceHolder, macros);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        // if the page is just an unrecognizable mess of tags, process in one shot.
+        //        templateProcessor.ProcessTemplate(this, templateString, ContentPlaceHolder, macros);
+        //    }
+        //}
 
         /// <summary>
         /// This method is used by controls to insert xhtml tags into the page head tag.
