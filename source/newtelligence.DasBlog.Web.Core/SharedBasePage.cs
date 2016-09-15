@@ -278,7 +278,12 @@ namespace newtelligence.DasBlog.Web.Core
             dataCache = CacheFactory.GetCache();
             
 			DayUtc = DateTime.UtcNow.AddDays(siteConfig.ContentLookaheadDays);
-            
+
+            if (Request.QueryString["amppage"] != null)
+            {
+                AMPPage = "amppage";
+            }
+
             // if the user sends an Accept-Language header, we grab the most
             // preferred language (culture) and make that the default culture
             // for the page. 
@@ -319,10 +324,6 @@ namespace newtelligence.DasBlog.Web.Core
                 {
                     DayUtc = DateTime.ParseExact(Request.QueryString["date"], "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
                     TitleOverride = DayUtc.ToLongDateString();
-                    if (Request.QueryString["amppage"] != null)
-                    {
-                        AMPPage = "amppage";
-                    }
                 }
                 catch
                 {
@@ -897,14 +898,7 @@ namespace newtelligence.DasBlog.Web.Core
         public virtual void ProcessDayTemplate( DateTime day, Control ContentPlaceHolder )
         {
             TemplateProcessor templateProcessor = new TemplateProcessor();
-            if (SiteConfig.AMPPagesEnabled && !string.IsNullOrEmpty(AMPPage))
-            {
-                templateProcessor.ProcessTemplate(this, GetDayAMPTemplate(), ContentPlaceHolder, new DayMacros(this, day));
-            }
-            else
-            {
-                templateProcessor.ProcessTemplate(this, GetDayTemplate(), ContentPlaceHolder, new DayMacros(this, day));
-            }
+            templateProcessor.ProcessTemplate(this, GetDayTemplate(), ContentPlaceHolder, new DayMacros(this, day));
         }
 
         /// <summary>
@@ -920,14 +914,7 @@ namespace newtelligence.DasBlog.Web.Core
 
             // Check if this is a regular template or an AMP template...
             string templateString = String.Empty;
-            if (SiteConfig.AMPPagesEnabled && !string.IsNullOrEmpty(AMPPage))
-            {
-                templateString = String.Format("<a name=\"a{0}\"></a>{1}", item.EntryId, GetItemAMPTemplate());
-            }
-            else
-            {
-                templateString = String.Format("<a name=\"a{0}\"></a>{1}", item.EntryId, GetItemTemplate());
-            }
+            templateString = String.Format("<a name=\"a{0}\"></a>{1}", item.EntryId, GetItemTemplate());
 			templateProcessor.ProcessTemplate( this, item, templateString, ContentPlaceHolder, new ItemMacros( this, item ) );
         }
 
@@ -1334,14 +1321,7 @@ namespace newtelligence.DasBlog.Web.Core
 				return;
 			}
 
-            if(SiteConfig.AMPPagesEnabled && !string.IsNullOrEmpty(AMPPage))
-            {
-                ProcesAMPTemplate();
-            }
-            else
-            {
-                ProcessTemplate();
-            }
+            ProcessTemplate();
 
 			// The X-pingback header that is injected into every page serve tells 
 			// pingback clients where to find the endpoint for pingback.
@@ -1552,6 +1532,24 @@ namespace newtelligence.DasBlog.Web.Core
 							return blogTheme;
 						}
 					}
+
+
+                    //TODO: Test this
+                    if (SiteConfig.AMPPagesEnabled && 
+                        !String.IsNullOrWhiteSpace(Request.QueryString["amppage"]))
+                    {
+                        if (themes.TryGetValue("amp", out blogTheme) == false)
+                        {
+                            loggingService.AddEvent(new EventDataItem(EventCodes.Error,
+                                String.Format("If you have a theme called 'amp' in your themes folder, readers who visit your site via a Mobile Device will automatically get that theme. User-Agent: {0}", Request.UserAgent),
+                                String.Empty));
+                        }
+                        else
+                        {
+                            return blogTheme;
+                        }
+                    }
+
 
                     BlogTheme theme;
 
