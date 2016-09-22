@@ -279,11 +279,6 @@ namespace newtelligence.DasBlog.Web.Core
             
 			DayUtc = DateTime.UtcNow.AddDays(siteConfig.ContentLookaheadDays);
 
-            if (Request.QueryString["amppage"] != null)
-            {
-                AMPPage = "amppage";
-            }
-
             // if the user sends an Accept-Language header, we grab the most
             // preferred language (culture) and make that the default culture
             // for the page. 
@@ -712,8 +707,15 @@ namespace newtelligence.DasBlog.Web.Core
 				{
 					indexHead = headerTemplate.IndexOf("</HEAD>");
 				}
-			
-                headerTemplate = headerTemplate.Insert(indexHead, baseTag + linkTag + rsdTag + microsummaryTag + Seo.CreateSeoMetaInformation(this.WeblogEntries, this.dataService));
+
+                if (!SiteUtilities.IsAMPage())
+                {
+                    headerTemplate = headerTemplate.Insert(indexHead, baseTag + linkTag + rsdTag + microsummaryTag + Seo.CreateSeoMetaInformation(this.WeblogEntries, this.dataService));
+                }
+                else
+                {
+                    headerTemplate = headerTemplate.Insert(indexHead, Seo.CreateAMPSeoMetaInformation(this.WeblogEntries, this.dataService));
+                }
 
 				// therefore it must close with a closing angle bracket, but it's better to check 
 				if ( headerTemplate[headerTemplate.Length-1] == '>' )
@@ -742,14 +744,22 @@ namespace newtelligence.DasBlog.Web.Core
 						
                 // now we process the header and attach the results to the content place holder
                 templateProcessor.ProcessTemplate( this, headerTemplate, ContentPlaceHolder, macros );
+
                 // once that's done, we create a form to wrap the body content and append that
                 // to the place holder as well,
                 // and we add an id to the form, so we are able to referencing to this form.
-				BaseHtmlForm mainForm = new BaseHtmlForm();
-				mainForm.ID = "mainForm";
-                ContentPlaceHolder.Controls.Add(mainForm);
-                // now we process the inside of the body section and inject it into the form
-                templateProcessor.ProcessTemplate( this, bodyTemplate, mainForm, macros );
+                if (!SiteUtilities.IsAMPage())
+                {
+                    BaseHtmlForm mainForm = new BaseHtmlForm();
+                    mainForm.ID = "mainForm";
+                    ContentPlaceHolder.Controls.Add(mainForm);
+                    templateProcessor.ProcessTemplate(this, bodyTemplate, mainForm, macros);
+                }
+                else
+                {
+                    templateProcessor.ProcessTemplate(this, bodyTemplate, ContentPlaceHolder, macros);
+                }
+
                 // and finally the footer
                 if ( footerTemplate.Length > 0 )
                 {
@@ -763,72 +773,6 @@ namespace newtelligence.DasBlog.Web.Core
             }
 			
         }
-
-        //public void ProcesAMPTemplate()
-        //{
-        //    TemplateProcessor templateProcessor = new TemplateProcessor();
-        //    string path = Request.PhysicalApplicationPath;
-        //    string templateString = GetHomeAMPTemplate(path);
-
-        //    Match match = findBodyTag.Match(templateString);
-        //    if (match.Success)
-        //    {
-        //        int indexBody = templateString.IndexOf("</body>");
-        //        if (indexBody == -1)
-        //        {
-        //            indexBody = templateString.IndexOf("</BODY>");
-        //        }
-
-        //        string headerTemplate = templateString.Substring(0, match.Index + match.Length);
-
-        //        int indexHead = headerTemplate.IndexOf("</head>");
-        //        if (indexHead == -1)
-        //        {
-        //            indexHead = headerTemplate.IndexOf("</HEAD>");
-        //        }
-
-        //        headerTemplate = headerTemplate.Insert(indexHead, Seo.CreateAMPSeoMetaInformation(this.WeblogEntries, this.dataService));
-
-        //        // therefore it must close with a closing angle bracket, but it's better to check 
-        //        if (headerTemplate[headerTemplate.Length - 1] == '>')
-        //        {
-        //            // if that's so, we want to inject the reading order designator if we're right-to-left
-        //            // or it's explicitly specified
-        //            string pageReadingDirection = coreStringTables.GetString("page_reading_direction");
-        //            if (pageReadingDirection != null && pageReadingDirection.Length > 0)
-        //            {
-        //                if (pageReadingDirection == "RTL") this.readingDirection = TextDirection.RightToLeft;
-        //                headerTemplate = headerTemplate.Substring(0, headerTemplate.Length - 1) + " dir=\"" + pageReadingDirection + "\">";
-        //            }
-        //        }
-
-        //        string bodyTemplate, footerTemplate;
-        //        if (indexBody != -1)
-        //        {
-        //            bodyTemplate = templateString.Substring(match.Index + match.Length, indexBody - (match.Index + match.Length));
-        //            footerTemplate = templateString.Substring(indexBody);
-        //        }
-        //        else
-        //        {
-        //            bodyTemplate = templateString.Substring(match.Index + match.Length);
-        //            footerTemplate = "";
-        //        }
-
-        //        templateProcessor.ProcessTemplate(this, headerTemplate, ContentPlaceHolder, macros);
-
-        //        templateProcessor.ProcessTemplate(this, bodyTemplate, ContentPlaceHolder, macros);
-        //        // and finally the footer
-        //        if (footerTemplate.Length > 0)
-        //        {
-        //            templateProcessor.ProcessTemplate(this, footerTemplate, ContentPlaceHolder, macros);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        // if the page is just an unrecognizable mess of tags, process in one shot.
-        //        templateProcessor.ProcessTemplate(this, templateString, ContentPlaceHolder, macros);
-        //    }
-        //}
 
         /// <summary>
         /// This method is used by controls to insert xhtml tags into the page head tag.
@@ -1503,13 +1447,12 @@ namespace newtelligence.DasBlog.Web.Core
 
 
                     //TODO: Test this
-                    if (SiteConfig.AMPPagesEnabled && 
-                        !String.IsNullOrWhiteSpace(Request.QueryString["amppage"]))
+                    if (SiteUtilities.IsAMPage())
                     {
                         if (themes.TryGetValue("amp", out blogTheme) == false)
                         {
                             loggingService.AddEvent(new EventDataItem(EventCodes.Error,
-                                String.Format("If you have a theme called 'amp' in your themes folder, readers who visit your site via a Mobile Device will automatically get that theme. User-Agent: {0}", Request.UserAgent),
+                                String.Format("If you have a theme called 'amp' in your themes folder, readers who visit your site via a an appropriate reader will automatically get that theme. User-Agent: {0}", Request.UserAgent),
                                 String.Empty));
                         }
                         else
@@ -1644,11 +1587,6 @@ namespace newtelligence.DasBlog.Web.Core
             {
                 weblogEntryId = value;
             }
-        }
-
-        public string AMPPage
-        {
-            get; set;
         }
 
         /// <summary>
