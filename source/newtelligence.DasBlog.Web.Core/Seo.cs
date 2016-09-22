@@ -104,7 +104,7 @@ namespace newtelligence.DasBlog.Web.Core
             if (weblogEntries.Count >= 1)
             {
                 Entry entry = weblogEntries[0];
-                metaTags += string.Format(CanonicalLinkPattern, SiteUtilities.GetBaseUrl());
+                metaTags += string.Format(CanonicalLinkPattern, SiteUtilities.GetPermaLinkUrl(entry));
 
                 blogPostDescription = entry.Content; 
 

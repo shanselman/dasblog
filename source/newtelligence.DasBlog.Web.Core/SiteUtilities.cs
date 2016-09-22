@@ -1194,7 +1194,10 @@ namespace newtelligence.DasBlog.Web.Core
 			return true;
 		}
 
-
+        public static bool IsAMPage()
+        {
+            return (SiteConfig.GetSiteConfig().AMPPagesEnabled && !String.IsNullOrWhiteSpace(HttpContext.Current.Request.QueryString["amppage"]));
+        }
 
 		public static bool GetStatusNotModified(DateTime latest)
 		{
