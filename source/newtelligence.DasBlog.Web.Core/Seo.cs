@@ -232,6 +232,39 @@ namespace newtelligence.DasBlog.Web.Core
             return metaTags;
         }
 
+            //<blockquote.+?class="twitter-tweet".+?\/status\/(.+?)[\"'].*?>.*?<\/script>
+        const string twitterRegEx = "<blockquote.+?class=\"twitter-tweet\".+?\\/status\\/(.+?)[\\\"'].*?>.*?<\\/script>";
+
+        const string templateRegEx = "<tag.+? src =[\"'](.+?)[\"'].*?><\\/tag>";
+        const string replacementTemplateRegEx = "<tag src=\"\\1\" width=\"100%\" height=\"100%\"></tag>";
+
+        //IMAGES
+        //   <img.+?src=[\"'](.+?)[\"'].*?>
+
+        //IFRAME
+        // <iframe.+?src=[\"'](.+?)[\"'].*>.*?<\/iframe>
+
+        private static string AmpifyBlogContent(string blogcontent)
+        {
+            //Look for all the img src tags...
+
+            //TODO: this is wrong for self closing images!
+            blogcontent = ReplaceHtmlTagPlusSrc("img", "amp-img", blogcontent);
+            blogcontent = ReplaceHtmlTagPlusSrc("iframe", "amp-iframe", blogcontent);
+
+            return blogcontent;
+        }
+
+        private static string ReplaceHtmlTagPlusSrc(string tagToReplace, string replacementTag, string content)
+        {
+            //prep our template
+            var regStr = templateRegEx.Replace("tag", tagToReplace);
+
+            Regex urlRx = new Regex(regStr, RegexOptions.IgnoreCase | RegexOptions.Compiled);
+            return urlRx.Replace(content, replacementTemplateRegEx);
+        }
+
+
         private static string FindFirstImage(string blogcontent)        
         {
             string firstimage = string.Empty;
