@@ -1196,7 +1196,7 @@ namespace newtelligence.DasBlog.Web.Core
 
         public static bool IsAMPage()
         {
-            return (SiteConfig.GetSiteConfig().AMPPagesEnabled && !String.IsNullOrWhiteSpace(HttpContext.Current.Request.QueryString["amppage"]));
+            return (SiteConfig.GetSiteConfig().AMPPagesEnabled && !String.IsNullOrWhiteSpace(HttpContext.Current.Request.QueryString["amp"]));
         }
 
 		public static bool GetStatusNotModified(DateTime latest)

@@ -194,7 +194,7 @@ namespace newtelligence.DasBlog.Web.Core
 
             //and NOT doing amp...no comments when AMP is active...
             if (config.EnableComments && config.ShowCommentsWhenViewingEntry
-                && String.IsNullOrWhiteSpace(app.Context.Request.QueryString["amppage"]))
+                && String.IsNullOrWhiteSpace(app.Context.Request.QueryString["amp"]))
             {
                 requestUrl = String.Format("~/CommentView.aspx?{0}", requestParams);
             }

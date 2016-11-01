@@ -158,6 +158,8 @@
     <Compile Include="AkismetSpamBlockingService.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AmpifyModule.cs" />
+    <Compile Include="AmpifyPageFilter.cs" />
     <Compile Include="ArchiveMonthsList.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -218,9 +220,7 @@
     <Compile Include="SharedBaseControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SharedBasePage.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+    <Compile Include="SharedBasePage.cs" />
     <Compile Include="SideBarList.cs">
       <SubType>Code</SubType>
     </Compile>
