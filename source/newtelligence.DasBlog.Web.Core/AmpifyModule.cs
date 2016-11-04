@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using newtelligence.DasBlog.Web.Core.Amp;
+using System;
 using System.Web;
 
 namespace newtelligence.DasBlog.Web.Core

@@ -159,7 +159,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="AmpifyModule.cs" />
-    <Compile Include="AmpifyPageFilter.cs" />
+    <Compile Include="Amp\AmpifyPageFilter.cs" />
+    <Compile Include="Amp\BaseAmpProcess.cs" />
+    <Compile Include="Amp\IProcessTag.cs" />
+    <Compile Include="Amp\ProcessIFrame.cs" />
+    <Compile Include="Amp\ProcessImage.cs" />
+    <Compile Include="Amp\ProcessTwitter.cs" />
     <Compile Include="ArchiveMonthsList.cs">
       <SubType>Code</SubType>
     </Compile>
