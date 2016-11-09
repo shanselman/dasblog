@@ -28,7 +28,7 @@ namespace newtelligence.DasBlog.Web.Core.Amp
             ProcessImage pi = new ProcessImage();
             blogcontent = pi.ReplaceTag(blogcontent);
 
-            ProcessIFrame pf = new ProcessIFrame();
+            ProcessYouTube pf = new ProcessYouTube();
             blogcontent = pf.ReplaceTag(blogcontent);
 
             ProcessTwitter ti = new ProcessTwitter();

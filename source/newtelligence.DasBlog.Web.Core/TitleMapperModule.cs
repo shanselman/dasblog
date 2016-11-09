@@ -134,7 +134,7 @@ namespace newtelligence.DasBlog.Web.Core
             }
 
             //TODO: If a config option says ExtensionLess...
-            bool extensionlessPosts = true;
+            bool extensionlessPosts = SiteConfig.GetSiteConfig().ExtensionlessUrls;
             if (extensionlessPosts)
             {
                 if (!fileExists && requestUrl.EndsWith(".aspx"))
@@ -144,9 +144,6 @@ namespace newtelligence.DasBlog.Web.Core
                     return;
                 }
             }
-
-
-
 
             title = title.Replace(".aspx", "");
             
