@@ -37,7 +37,7 @@ namespace newtelligence.DasBlog.Web.Core
         private const string MetaSchemeDescription = "\"description\": \"{0}\",";
         private const string MetaSchemeUrl = "\"url\": \"{0}\",";
         private const string MetaSchemeAuthor = "\"author\": \"{0}\",";
-        private const string MetaSchemePublisher = "\"publisher\": \"{0}\",";
+        private const string MetaSchemePublisher = "\"publisher\": {{ \"@type\": \"Organization\", \"name\": \"{0}\", \"logo\": \"{1}\" }},";
         private const string MetaSchemeImage = "\"image\": \"{0}\"";
         private const string MetaSchemeCloseScript = "}\r\n</script>\r\n";
 
@@ -128,8 +128,8 @@ namespace newtelligence.DasBlog.Web.Core
                 metaTags += string.Format(MetaSchemeHeadline, entry.Title);
                 metaTags += string.Format(MetaSchemeDatePublished, entry.CreatedUtc.ToString("yyyy-MM-dd"));
                 metaTags += string.Format(MetaSchemeAuthor, siteConfig.Copyright);
-                metaTags += string.Format(MetaSchemePublisher, siteConfig.Title);
-                metaTags += string.Format(MetaSchemeImage, string.Empty);
+                metaTags += string.Format(MetaSchemePublisher, siteConfig.Title, siteConfig.ChannelImageUrl);
+                metaTags += string.Format(MetaSchemeImage, siteConfig.ChannelImageUrl);
                 metaTags += MetaSchemeCloseScript;
             }
 
