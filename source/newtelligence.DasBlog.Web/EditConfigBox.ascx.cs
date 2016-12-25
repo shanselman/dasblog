@@ -74,6 +74,7 @@ namespace newtelligence.DasBlog.Web
                 checkAlwaysIncludeContentInRSS.Checked = siteConfig.AlwaysIncludeContentInRSS;
                 checkEnableRSSItemFooter.Checked = siteConfig.EnableRssItemFooters;
                 textRSSItemFooter.Text = siteConfig.RssItemFooter;
+                txtRSSEndPointRewrite.Text = siteConfig.RSSEndPointRewrite;
                 checkPop3Enabled.Checked = siteConfig.EnablePop3;
                 textPop3Interval.Text = siteConfig.Pop3Interval.ToString();
                 textPop3Server.Text = siteConfig.Pop3Server;
@@ -330,6 +331,19 @@ namespace newtelligence.DasBlog.Web
                 chkBypassSpamOpenIdCommenter.Checked = siteConfig.BypassSpamOpenIdComment;
 
 
+                SeoMetaTags smt = new SeoMetaTags().GetMetaTags();
+
+                txtMetaDescription.Text = smt.MetaDescription;
+                txtMetaKeywords.Text = smt.MetaKeywords;
+                txtTwitterCard.Text = smt.TwitterCard;
+                txtTwitterSite.Text = smt.TwitterSite;
+                txtTwitterCreator.Text = smt.TwitterCreator;
+                txtTwitterImage.Text = smt.TwitterImage;
+                txtFaceBookAdmins.Text = smt.FaceBookAdmins;
+                txtFaceBookAppID.Text = smt.FaceBookAppID;
+
+                checkAmpEnabled.Checked = siteConfig.AMPPagesEnabled;
+
             } // end if !postback
 
             //enable list controls that may have been enabled client-side
@@ -423,6 +437,7 @@ namespace newtelligence.DasBlog.Web
             siteConfig.AlwaysIncludeContentInRSS = checkAlwaysIncludeContentInRSS.Checked;
             siteConfig.EnableRssItemFooters = checkEnableRSSItemFooter.Checked;
             siteConfig.RssItemFooter = textRSSItemFooter.Text;
+            siteConfig.RSSEndPointRewrite = txtRSSEndPointRewrite.Text;
             siteConfig.EnablePop3 = checkPop3Enabled.Checked;
             siteConfig.Pop3Interval = int.Parse(textPop3Interval.Text);
             siteConfig.Pop3Server = textPop3Server.Text;
@@ -612,7 +627,21 @@ namespace newtelligence.DasBlog.Web
             siteConfig.AllowOpenIdComments = chkAllowOpenIdCommenter.Checked;
             siteConfig.BypassSpamOpenIdComment = chkBypassSpamOpenIdCommenter.Checked;
 
+            siteConfig.AMPPagesEnabled = checkAmpEnabled.Checked;
+
             SiteConfig.Save(siteConfig);
+
+            SeoMetaTags smt = new SeoMetaTags().GetMetaTags();
+            smt.MetaDescription = txtMetaDescription.Text;
+            smt.MetaKeywords = txtMetaKeywords.Text ;
+            smt.TwitterCard = txtTwitterCard.Text;
+            smt.TwitterSite = txtTwitterSite.Text;
+            smt.TwitterCreator = txtTwitterCreator.Text;
+            smt.TwitterImage = txtTwitterImage.Text;
+            smt.FaceBookAdmins = txtFaceBookAdmins.Text;
+            smt.FaceBookAppID = txtFaceBookAppID.Text;
+
+            SeoMetaTags.Save(smt);
 
             if (siteConfig.EnableReferralUrlBlackList && siteConfig.ReferralUrlBlackList.Length != 0)
             {

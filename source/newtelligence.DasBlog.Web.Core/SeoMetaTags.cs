@@ -1,5 +1,7 @@
-﻿using System.IO;
+﻿using newtelligence.DasBlog.Runtime.Proxies;
+using System.IO;
 using System.Xml;
+using System.Xml.Serialization;
 
 namespace newtelligence.DasBlog.Web.Core
 {
@@ -7,7 +9,6 @@ namespace newtelligence.DasBlog.Web.Core
     {
         public string MetaDescription { get; set; }
         public string MetaKeywords { get; set; }
-        public string SiteName { get; set; }
         public string TwitterCard { get; set; }
         public string TwitterSite { get; set; }
         public string TwitterCreator { get; set; }
@@ -31,7 +32,21 @@ namespace newtelligence.DasBlog.Web.Core
             }
             return seoMetaTags;
         }
-        
+
+        public static void Save(SeoMetaTags seoConfig)
+        {
+            System.Security.Principal.WindowsImpersonationContext wi = Impersonation.Impersonate();
+
+            XmlSerializer ser = new XmlSerializer(typeof(SeoMetaTags));
+
+            using (StreamWriter writer = new StreamWriter(MetaConfigFile))
+            {
+                ser.Serialize(writer, seoConfig);
+            }
+
+            wi.Undo();
+        }
+
         private SeoMetaTags GetMetaTagsFromConfig()
         {
             if (!File.Exists(MetaConfigFile))
