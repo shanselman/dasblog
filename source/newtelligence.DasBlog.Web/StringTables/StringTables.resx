@@ -1050,4 +1050,40 @@
   <data name="text_OpenIdIdentifier" xml:space="preserve">
     <value>OpenID Identifier</value>
   </data>
+  <data name="text_SEOSocialSettings" xml:space="preserve">
+    <value>SEO and Social Network settings</value>
+  </data>
+  <data name="text_MetaDescription" xml:space="preserve">
+    <value>Meta Description</value>
+  </data>
+  <data name="text_MetaKeywords" xml:space="preserve">
+    <value>Meta Keywords</value>
+  </data>
+  <data name="text_TwitterCard" xml:space="preserve">
+    <value>Twitter Card</value>
+  </data>
+  <data name="text_TwitterSite" xml:space="preserve">
+    <value>Twitter Site</value>
+  </data>
+  <data name="text_TwitterCreator" xml:space="preserve">
+    <value>Twitter Creator</value>
+  </data>
+  <data name="text_TwitterImage" xml:space="preserve">
+    <value>Twitter Image</value>
+  </data>
+  <data name="text_FaceBookAdmins" xml:space="preserve">
+    <value>FaceBook Admins</value>
+  </data>
+  <data name="text_FaceBookAppID" xml:space="preserve">
+    <value>FaceBook AppID</value>
+  </data>
+  <data name="text_AMPSettings" xml:space="preserve">
+    <value>AMP Settings</value>
+  </data>
+  <data name="text_AMPPagesEnabled" xml:space="preserve">
+    <value>Enable AMP Pages</value>
+  </data>
+  <data name="text_RSSEndPointRewrite" xml:space="preserve">
+    <value>Rewrite RSS endpoint (requires url rewriter module)</value>
+  </data>
 </root>

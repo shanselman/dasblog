@@ -111,6 +111,8 @@ namespace newtelligence.DasBlog.Web
         private string titlePermalinkSpaceReplacement = TitleMapperModule.DefaultTitlePermalinkSpaceReplacement;
         bool enableCoComment = true;
         bool enableAMPPages = false;
+        string rssEndPointRewrite = string.Empty;
+        
 
         //paulb changed to comments
         bool commentsRequireApproval;
@@ -1266,6 +1268,12 @@ namespace newtelligence.DasBlog.Web
         {
             get { return enableAMPPages; }
             set { this.enableAMPPages = value; }
+        }
+
+        public string RSSEndPointRewrite
+        {
+            get { return rssEndPointRewrite; }
+            set { this.rssEndPointRewrite = value; }
         }
 
         /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
