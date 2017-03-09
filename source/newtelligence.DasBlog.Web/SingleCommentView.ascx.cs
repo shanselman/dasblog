@@ -234,11 +234,9 @@ namespace newtelligence.DasBlog.Web
                }
             }
 
-
-
             HtmlGenericControl entryGRAVATAR = new HtmlGenericControl("span");
             entryGRAVATAR.Attributes["class"] = "commentGravatarBlock";
-            entryGRAVATAR.InnerHtml = "<img class=\"commentGravatar\" src=\"http://www.gravatar.com/avatar.php?gravatar_id=" + hash + gravrating + gravsize + nogravpath + gravborder + "\"/>";
+            entryGRAVATAR.InnerHtml = "<img class=\"commentGravatar\" src=\"//www.gravatar.com/avatar.php?gravatar_id=" + hash + gravrating + gravsize + nogravpath + gravborder + "\"/>";
             footer.Controls.Add(entryGRAVATAR);
          }
 
