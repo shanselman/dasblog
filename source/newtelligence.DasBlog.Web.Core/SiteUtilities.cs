@@ -135,7 +135,7 @@ namespace newtelligence.DasBlog.Web.Core
 		
 		public static string GetRsdUrl()
 		{
-			return GetRsdUrl(SiteConfig.GetSiteConfig());
+            return GetRsdUrl(SiteConfig.GetSiteConfig());
 		}
     	
 		public static string GetRsdUrl(SiteConfig siteConfig)
@@ -161,7 +161,14 @@ namespace newtelligence.DasBlog.Web.Core
         /// <returns></returns>
         public static string GetRssUrl()
         {
-            return GetRssUrl(SiteConfig.GetSiteConfig());
+            SiteConfig siteConfig = SiteConfig.GetSiteConfig();
+            if (siteConfig.RSSEndPointRewrite != null && siteConfig.RSSEndPointRewrite.Trim().Length > 0)
+            {
+                Uri rss = new Uri(siteConfig.Root + siteConfig.RSSEndPointRewrite);
+                return rss.AbsoluteUri;
+            }
+
+            return GetRssUrl(siteConfig);
         }
 
         public static string GetRssUrl(SiteConfig siteConfig)
@@ -1196,7 +1203,7 @@ namespace newtelligence.DasBlog.Web.Core
 
         public static bool IsAMPage()
         {
-            return (SiteConfig.GetSiteConfig().AMPPagesEnabled && !String.IsNullOrWhiteSpace(HttpContext.Current.Request.QueryString["amppage"]));
+            return (SiteConfig.GetSiteConfig().AMPPagesEnabled && !String.IsNullOrWhiteSpace(HttpContext.Current.Request.QueryString["amp"]));
         }
 
 		public static bool GetStatusNotModified(DateTime latest)

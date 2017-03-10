@@ -2,8 +2,13 @@
 <MetaTags>
   <MetaDescription></MetaDescription>
   <MetaKeywords></MetaKeywords>
+  <TwitterCard></TwitterCard>
+  <TwitterSite></TwitterSite>
+  <TwitterCreator></TwitterCreator>
+  <TwitterImage></TwitterImage>
+  <FaceBookAdmins></FaceBookAdmins>
+  <FaceBookAppID></FaceBookAppID>
 </MetaTags>
-
 
 <!-- 
 
@@ -14,6 +19,12 @@ Example:
 <MetaTags>
   <MetaDescription>John Doe is a professional web developer. He is blogging about ASP.NET and web developing.</MetaDescription>
   <MetaKeywords>ASP.NET Silverlight CSS HTML JavaScript</MetaKeywords>
+  <TwitterCard>summary</TwitterCard>
+  <TwitterSite>@twitterhandle</TwitterSite>
+  <TwitterCreator>@twitterhandle</TwitterCreator>
+  <TwitterImage>http://www.somesite.com/images/defaultsiteimage.png</TwitterImage>
+  <FaceBookAdmins></FaceBookAdmins>
+  <FaceBookAppID></FaceBookAppID>
 </MetaTags>
 
 -->

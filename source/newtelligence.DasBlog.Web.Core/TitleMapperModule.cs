@@ -134,7 +134,7 @@ namespace newtelligence.DasBlog.Web.Core
             }
 
             //TODO: If a config option says ExtensionLess...
-            bool extensionlessPosts = true;
+            bool extensionlessPosts = SiteConfig.GetSiteConfig().ExtensionlessUrls;
             if (extensionlessPosts)
             {
                 if (!fileExists && requestUrl.EndsWith(".aspx"))
@@ -144,9 +144,6 @@ namespace newtelligence.DasBlog.Web.Core
                     return;
                 }
             }
-
-
-
 
             title = title.Replace(".aspx", "");
             
@@ -194,7 +191,7 @@ namespace newtelligence.DasBlog.Web.Core
 
             //and NOT doing amp...no comments when AMP is active...
             if (config.EnableComments && config.ShowCommentsWhenViewingEntry
-                && String.IsNullOrWhiteSpace(app.Context.Request.QueryString["amppage"]))
+                && String.IsNullOrWhiteSpace(app.Context.Request.QueryString["amp"]))
             {
                 requestUrl = String.Format("~/CommentView.aspx?{0}", requestParams);
             }

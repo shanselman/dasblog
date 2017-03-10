@@ -36,10 +36,12 @@ namespace newtelligence.DasBlog.Web.Core
         private const string MetaSchemeDatePublished = "\"datePublished\": \"{0}\",";
         private const string MetaSchemeDescription = "\"description\": \"{0}\",";
         private const string MetaSchemeUrl = "\"url\": \"{0}\",";
+        private const string MetaSchemeAuthor = "\"author\": \"{0}\",";
+        private const string MetaSchemePublisher = "\"publisher\": {{ \"@type\": \"Organization\", \"name\": \"{0}\", \"logo\": \"{1}\" }},";
         private const string MetaSchemeImage = "\"image\": \"{0}\"";
         private const string MetaSchemeCloseScript = "}\r\n</script>\r\n";
 
-        private const string MetaAMPLinkPattern = "<link rel=\"amphtml\" href=\"{0}?amppage=true\" />\r\n";
+        private const string MetaAMPLinkPattern = "<link rel=\"amphtml\" href=\"{0}?amp=1\" />\r\n";
 
         public static string CreateSeoMetaInformation(EntryCollection weblogEntries, IBlogDataService dataService)
         {
@@ -118,12 +120,16 @@ namespace newtelligence.DasBlog.Web.Core
                     postImage = string.Empty;
                 }
 
+                SiteConfig siteConfig = SiteConfig.GetSiteConfig();
+
                 metaTags += MetaSchemeOpenScript;
                 metaTags += MetaSchemeContext;
                 metaTags += MetaSchemeNewsType;
                 metaTags += string.Format(MetaSchemeHeadline, entry.Title);
                 metaTags += string.Format(MetaSchemeDatePublished, entry.CreatedUtc.ToString("yyyy-MM-dd"));
-                metaTags += string.Format(MetaSchemeImage, postImage);
+                metaTags += string.Format(MetaSchemeAuthor, siteConfig.Copyright);
+                metaTags += string.Format(MetaSchemePublisher, siteConfig.Title, siteConfig.ChannelImageUrl);
+                metaTags += string.Format(MetaSchemeImage, siteConfig.ChannelImageUrl);
                 metaTags += MetaSchemeCloseScript;
             }
 
@@ -231,39 +237,6 @@ namespace newtelligence.DasBlog.Web.Core
 
             return metaTags;
         }
-
-            //<blockquote.+?class="twitter-tweet".+?\/status\/(.+?)[\"'].*?>.*?<\/script>
-        const string twitterRegEx = "<blockquote.+?class=\"twitter-tweet\".+?\\/status\\/(.+?)[\\\"'].*?>.*?<\\/script>";
-
-        const string templateRegEx = "<tag.+? src =[\"'](.+?)[\"'].*?><\\/tag>";
-        const string replacementTemplateRegEx = "<tag src=\"\\1\" width=\"100%\" height=\"100%\"></tag>";
-
-        //IMAGES
-        //   <img.+?src=[\"'](.+?)[\"'].*?>
-
-        //IFRAME
-        // <iframe.+?src=[\"'](.+?)[\"'].*>.*?<\/iframe>
-
-        private static string AmpifyBlogContent(string blogcontent)
-        {
-            //Look for all the img src tags...
-
-            //TODO: this is wrong for self closing images!
-            blogcontent = ReplaceHtmlTagPlusSrc("img", "amp-img", blogcontent);
-            blogcontent = ReplaceHtmlTagPlusSrc("iframe", "amp-iframe", blogcontent);
-
-            return blogcontent;
-        }
-
-        private static string ReplaceHtmlTagPlusSrc(string tagToReplace, string replacementTag, string content)
-        {
-            //prep our template
-            var regStr = templateRegEx.Replace("tag", tagToReplace);
-
-            Regex urlRx = new Regex(regStr, RegexOptions.IgnoreCase | RegexOptions.Compiled);
-            return urlRx.Replace(content, replacementTemplateRegEx);
-        }
-
 
         private static string FindFirstImage(string blogcontent)        
         {

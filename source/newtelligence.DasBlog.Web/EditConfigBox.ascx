@@ -639,6 +639,14 @@
 					<asp:CheckBox ID="checkUseFeedScheme" Text='<%# resmgr.GetString("text_config_use_feed_scheme") %>' CssClass="configControlStyle" runat="server">
 					</asp:CheckBox></td>
 			</tr>
+			<tr>
+				<td class="configLabelColumnStyle" nowrap="nowrap">
+					<asp:Label ID="lblRSSEndPointRewrite" runat="server" Text='<%# resmgr.GetString("text_RSSEndPointRewrite")%>' CssClass="configLabelStyle"></asp:Label>
+                </td>
+				<td nowrap="nowrap" colspan="3">
+					<asp:TextBox ID="txtRSSEndPointRewrite" runat="server" CssClass="configControlStyle" MaxLength="120" Columns="40"></asp:TextBox>
+				</td>
+			</tr>
 		</table>
 	</div>
 	<div class="configSectionStyle">
@@ -884,6 +892,91 @@
 			</tr>
 		</table>
 	</div>
+	<div class="configSectionStyle">
+		<div class="configSectionTitleStyle">
+			<asp:Label ID="lblSEOSocialSettings" runat="server" Text='<%# resmgr.GetString("text_SEOSocialSettings") %>'></asp:Label>
+		</div>
+		<table cellspacing="0" cellpadding="2" border="0">
+			<tr>
+				<td class="configLabelColumnStyle" nowrap="nowrap">
+					<asp:Label ID="lblMetaDescription" runat="server" Text='<%# resmgr.GetString("text_MetaDescription") %>' CssClass="configLabelStyle"></asp:Label>
+				</td>
+				<td>
+					<asp:TextBox ID="txtMetaDescription" runat="server" CssClass="configControlStyle" MaxLength="120" Columns="40"></asp:TextBox>
+				</td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap">
+					<asp:Label ID="lblMetaKeywords" runat="server" Text='<%# resmgr.GetString("text_MetaKeywords") %>' CssClass="configLabelStyle"></asp:Label>
+				</td>
+				<td>
+					<asp:TextBox ID="txtMetaKeywords" runat="server" CssClass="configControlStyle" MaxLength="120" Columns="40"></asp:TextBox>
+				</td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap">
+					<asp:Label ID="lblTwitterCard" runat="server" Text='<%# resmgr.GetString("text_TwitterCard") %>' CssClass="configLabelStyle"></asp:Label>
+				</td>
+				<td>
+					<asp:TextBox ID="txtTwitterCard" runat="server" CssClass="configControlStyle" MaxLength="120" Columns="40"></asp:TextBox>
+				</td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap">
+					<asp:Label ID="lblTwitterSite" runat="server" Text='<%# resmgr.GetString("text_TwitterSite") %>' CssClass="configLabelStyle"></asp:Label>
+				</td>
+				<td>
+					<asp:TextBox ID="txtTwitterSite" runat="server" CssClass="configControlStyle" MaxLength="120" Columns="40"></asp:TextBox>
+				</td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap">
+					<asp:Label ID="lblTwitterCreator" runat="server" Text='<%# resmgr.GetString("text_TwitterCreator") %>' CssClass="configLabelStyle"></asp:Label>
+				</td>
+				<td>
+					<asp:TextBox ID="txtTwitterCreator" runat="server" CssClass="configControlStyle" MaxLength="120" Columns="40"></asp:TextBox>
+				</td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap">
+					<asp:Label ID="lblTwitterImage" runat="server" Text='<%# resmgr.GetString("text_TwitterImage") %>' CssClass="configLabelStyle"></asp:Label>
+				</td>
+				<td>
+					<asp:TextBox ID="txtTwitterImage" runat="server" CssClass="configControlStyle" MaxLength="120" Columns="40"></asp:TextBox>
+				</td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap">
+					<asp:Label ID="lblFaceBookAdmins" runat="server" Text='<%# resmgr.GetString("text_FaceBookAdmins") %>' CssClass="configLabelStyle"></asp:Label>
+				</td>
+				<td>
+					<asp:TextBox ID="txtFaceBookAdmins" runat="server" CssClass="configControlStyle" MaxLength="120" Columns="40"></asp:TextBox>
+				</td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap">
+					<asp:Label ID="lblFaceBookAppID" runat="server" Text='<%# resmgr.GetString("text_FaceBookAppID") %>' CssClass="configLabelStyle"></asp:Label>
+				</td>
+				<td>
+					<asp:TextBox ID="txtFaceBookAppID" runat="server" CssClass="configControlStyle" MaxLength="120" Columns="40"></asp:TextBox>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+    	<div class="configSectionStyle">
+		<div class="configSectionTitleStyle">
+			<asp:Label ID="Label15" runat="server" Text='<%# resmgr.GetString("text_AMPSettings") %>'></asp:Label>
+		</div>
+		<table cellspacing="0" cellpadding="2" border="0">
+			<tr>
+				<td class="configLabelColumnStyle" nowrap="nowrap" colspan="2">
+					<asp:CheckBox ID="checkAmpEnabled" runat="server" Text='<%# resmgr.GetString("text_AMPPagesEnabled")%>' CssClass="configControlStyle">
+					</asp:CheckBox></td>
+			</tr>
+		</table>
+	</div>
+
 	<div style="CLEAR: both">
 		<asp:Button ID="buttonSave" runat="server" Text='<%# resmgr.GetString("text_save_settings") %>' onclick="buttonSave_Click">
 		</asp:Button></div>
