@@ -202,6 +202,33 @@ namespace newtelligence.DasBlog.Web {
         protected global::System.Web.UI.WebControls.TextBox homepage;
         
         /// <summary>
+        /// trCheesySpam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trCheesySpam;
+        
+        /// <summary>
+        /// lblCheesySpamQ control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCheesySpamQ;
+        
+        /// <summary>
+        /// txtCheesySpamA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCheesySpamA;
+        
+        /// <summary>
         /// rememberMe control.
         /// </summary>
         /// <remarks>
