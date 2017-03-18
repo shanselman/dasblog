@@ -372,7 +372,6 @@
     </Content>
     <Content Include="Profile.aspx" />
     <Content Include="ProfileCombo.ascx" />
-    <Content Include="ReCapture.ascx" />
     <Content Include="Referrers.aspx">
       <SubType>Form</SubType>
     </Content>
@@ -1003,13 +1002,6 @@
     </Compile>
     <Compile Include="ProfileCombo.ascx.designer.cs">
       <DependentUpon>ProfileCombo.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="ReCapture.ascx.cs">
-      <DependentUpon>ReCapture.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ReCapture.ascx.designer.cs">
-      <DependentUpon>ReCapture.ascx</DependentUpon>
     </Compile>
     <Compile Include="Referrers.aspx.cs">
       <DependentUpon>Referrers.aspx</DependentUpon>
