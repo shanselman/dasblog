@@ -112,7 +112,9 @@ namespace newtelligence.DasBlog.Web
         bool enableCoComment = true;
         bool enableAMPPages = false;
         string rssEndPointRewrite = string.Empty;
-        
+        string cheesySpamA = string.Empty;
+        string cheesySpamQ = string.Empty;
+
 
         //paulb changed to comments
         bool commentsRequireApproval;
@@ -1274,6 +1276,17 @@ namespace newtelligence.DasBlog.Web
         {
             get { return rssEndPointRewrite; }
             set { this.rssEndPointRewrite = value; }
+        }
+
+        public string CheesySpamQ
+        {
+            get { return cheesySpamQ; }
+            set { cheesySpamQ = value; }
+        }
+        public string CheesySpamA
+        {
+            get { return cheesySpamA; }
+            set { cheesySpamA = value; }
         }
 
         /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/

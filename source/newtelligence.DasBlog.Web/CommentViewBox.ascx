@@ -59,6 +59,14 @@
                     <asp:TextBox MaxLength="64" ID="homepage" runat="server" Columns="60" CssClass="commentViewControlStyle" Width="99%"></asp:TextBox>
                 </td>
             </tr>
+             <tr id="trCheesySpam" runat="server">
+                <td style="white-space: nowrap">
+                    <asp:Label ID="lblCheesySpamQ" runat="server" CssClass="commentViewLabelStyle" Text='2+2=?'></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox MaxLength="64" ID="txtCheesySpamA" runat="server" Columns="60" CssClass="commentViewControlStyle" Width="99%"></asp:TextBox>
+                </td>
+            </tr>
             <tr>
                 <td style="white-space: nowrap" colspan="2">
                 </td>
