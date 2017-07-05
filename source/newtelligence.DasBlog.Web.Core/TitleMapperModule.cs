@@ -103,7 +103,7 @@ namespace newtelligence.DasBlog.Web.Core
                 return;
             }
 
-            string requestUrl = app.Context.Request.Url.ToString();
+            string requestUrl = app.Context.Request.Url.LocalPath;
             if (requestUrl.Contains(",") || requestUrl.Contains("?"))
             {
                 return;
