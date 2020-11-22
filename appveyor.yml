@@ -2,7 +2,6 @@ version: 1.0.{build}
 build:
   project: source/DasBlog All.sln
   verbosity: minimal
-test: off
 notifications:
   - provider: Email
     to:
